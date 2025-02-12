@@ -1,0 +1,70 @@
+.html {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin: 2vh 0;
+}
+
+.siteTitle {
+  font-size: 3.975vh;
+  font-family: var(--bravada-arma), sans-serif;
+  color: white;
+  text-decoration: none;
+  padding: 1.7vw;
+  line-height: 5vh;
+  height: 4.2vh;
+  align-items: center;
+  width: 8vw;
+}
+
+.siteTitle:hover {
+  color: white;
+  font-weight: 900;
+  font-size: 3vw;
+  line-height: 4.2vh;
+}
+
+.active {
+  color: #ff0000;
+}
+
+.logoContainer {
+  position: relative;
+}
+
+.footer {
+  position: relative;
+}
+
+.firstCopyright {
+  text-align: center;
+  font-size: 1.5vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+
+  position: absolute;
+  bottom: 6vh;
+  left: 46vw;
+  margin: 0;
+}
+
+.secondCopyright {
+  text-align: center;
+  font-size: 1.5vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+
+  position: absolute;
+  bottom: 0;
+  left: 37vw;
+  margin: 0;
+}
