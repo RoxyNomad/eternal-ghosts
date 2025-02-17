@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
           <nav>
             <Link href="/news" className={globalStyles.siteTitle}>NEWS</Link>
             <Link href="/band" className={globalStyles.siteTitle}>BAND</Link>
-            <Link href="/live" className={globalStyles.siteTitle}>gallery</Link>
+            <Link href="/live" className={globalStyles.siteTitle}>LIVE</Link>
             <Link href="/gallery" className={globalStyles.siteTitle}>GALLERY</Link>
             <Link href="/tour" className={globalStyles.siteTitle}>TOUR</Link>
             <Link href="/releases" className={globalStyles.siteTitle}>RELEASES</Link>

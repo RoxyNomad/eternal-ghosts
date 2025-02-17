@@ -4,7 +4,7 @@ import Image from 'next/image';
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" style={{overflow: 'hidden'}}>
         <Head>
           {/* Globale Stylesheets oder Meta-Tags */}
           <meta charSet="utf-8" />
@@ -14,16 +14,16 @@ class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <link rel="icon" type="image/x-icon" href="/pictures/favImage.ico" />
         </Head>
-        <body>
-        <Image src="/pictures/bg.jpeg" alt="Eternal Ghosts Background" 
-        style={{
-          position: 'fixed', 
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: -1
-        }} width={3840} height={2160} />
+        <body style={{overflow: 'hidden', minHeight: '100vh'}}>
+          <Image src="/pictures/bg.jpeg" alt="Eternal Ghosts Background" 
+          style={{
+            position: 'fixed', 
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: -1
+          }} width={3840} height={2160} />
           <Main />
           <NextScript />
           <div style={{

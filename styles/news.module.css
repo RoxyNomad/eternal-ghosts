@@ -104,3 +104,23 @@
   background-color: rgba(187, 187, 187, 0.2);
   font-weight: 900;
 }
+
+@media (max-width: 1366px) and (orientation: landscape) {
+  .navPageBar {
+    width: 97vw;
+  }
+
+  .Picture {
+    width: 48vw;
+    left: 1vw;
+  }
+
+  .logoXL {
+    width: 48vw;
+    right: 1vw;
+  }
+
+  .readMore {
+    left: 79%;
+  }
+}
