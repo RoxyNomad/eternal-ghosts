@@ -1,8 +1,9 @@
+// src/components/AnimatedPictureAndLogo.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import styles from '../styles/news.module.css'
+import styles from "@/styles/news.module.css";
 
 const AnimatedPictureAndLogo = () => {
   return (

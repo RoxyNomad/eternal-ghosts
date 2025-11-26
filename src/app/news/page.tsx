@@ -1,20 +1,15 @@
-import React from 'react';
-import Image from 'next/image'
-import Link from 'next/link'
-import Head from 'next/head';
-import AnimatedPictureAndLogo from '@/components/NewsAnimation';
-import clsx from 'clsx';
-import globalStyles from '../styles/globals.module.css';
-import newsStyles from '../styles/news.module.css';
+// app/news/page.tsx
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import clsx from "clsx";
+import AnimatedPictureAndLogo from "@/components/news/NewsAmination";
+import globalStyles from "@/styles/globals.module.css";
+import newsStyles from "@/styles/news.module.css";
 
-const News = () => {
-
+export default function News() {
   return (
     <div className={globalStyles.html}>
-      <Head>
-        <title>Eternal Ghosts</title>
-      </Head>
-
       <main>
         <header className={globalStyles.header}>
           <nav>
@@ -38,8 +33,8 @@ const News = () => {
           <div className={newsStyles.navPageBar}>
             <div className={newsStyles.navPageTitle}>NEWS</div>
             <div>
-              <Link href='https://www.facebook.com/profile.php?id=61573032031881'>
-                <Image src="/pictures/facebook-icon.png" alt="Eternal Ghosts Facebook" className={newsStyles.facebookIcon}  width={94.1084} height={94.1083}/>
+              <Link href="https://www.facebook.com/profile.php?id=61573032031881">
+                <Image src="/pictures/facebook-icon.png" alt="Eternal Ghosts Facebook" className={newsStyles.facebookIcon} width={94.1084} height={94.1083}/>
               </Link>
             </div>
             <div>
@@ -49,7 +44,7 @@ const News = () => {
             </div>
             <div>
               <Link href="https://www.instagram.com/eternalghosts0/">
-                <Image src="/pictures/instagram-icon.png" className={newsStyles.instagramIcon} alt="Eternal Ghosts Instagram"  width={94.1084} height={94.1083}/>
+                <Image src="/pictures/instagram-icon.png" className={newsStyles.instagramIcon} alt="Eternal Ghosts Instagram" width={94.1084} height={94.1083}/>
               </Link>
             </div>
 
@@ -63,6 +58,4 @@ const News = () => {
       </main>
     </div>
   );
-};
-
-export default News;
+}
