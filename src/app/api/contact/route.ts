@@ -1,30 +1,15 @@
 // src/app/api/contact/route.ts
-import nodemailer from "nodemailer";
 import { NextRequest, NextResponse } from "next/server";
+import { SendContactMessageCommand } from "@/domain/commands/SendContactMessageCommand";
+import { SendContactMessageHandler } from "@/application/commands/SendContactMessageHandler";
 
-// POST handler
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, subject, message } = await req.json();
+    const body = await req.json();
+    const command = new SendContactMessageCommand(body);
+    const handler = new SendContactMessageHandler();
 
-    // SMTP configuration (adjust for your email provider)
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmx.ch",
-      port: 587,
-      secure: false,
-      auth: {
-        user: "eternal.ghosts@gmx.ch",
-        pass: "dein-app-passwort", // <-- unbedingt anpassen!
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"${name}" <${email}>`,
-      to: "eternal.ghosts@gmx.ch",
-      subject,
-      text: message,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p>${message}</p>`,
-    });
+    await handler.execute(command);
 
     return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
   } catch (error) {
