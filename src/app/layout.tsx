@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Image from "next/image";
+
 import "@/styles/globals.module.css";
 import "@/styles/band.module.css";
 import "@/styles/biography.module.css";
@@ -14,6 +15,7 @@ import "@/styles/members.module.css";
 import "@/styles/news.module.css";
 import "@/styles/releases.module.css";
 import "@/styles/tour.module.css";
+import "@/styles/terms.module.css";
 
 
 
@@ -50,10 +52,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" style={{ overflow: "hidden" }}>
+    <html lang="en">
       <body
         className={myFont.variable}
-        style={{ overflow: "hidden", minHeight: "100vh" }}
+        style={{ minHeight: "100vh" }}
       >
         {/* Background Image */}
         <Image
@@ -64,9 +66,8 @@ export default function RootLayout({
             position: "fixed",
             top: 0,
             left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
+            width: "100vw",
+            height: "100vh",
             zIndex: -1,
           }}
           width='1920'
@@ -80,36 +81,21 @@ export default function RootLayout({
         <div
           style={{
             textAlign: "center",
-            position: "absolute",
-            bottom: "0",
+            position: "relative",
+            bottom: '2vh',
             left: "50%",
             transform: "translateX(-50%)",
           }}
         >
           <p
             style={{
-              fontSize: "1.5vh",
+              fontSize: "1rem",
               fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
               color: "white",
               margin: "0",
             }}
           >
-            © 2023 Eternal Ghosts
-          </p>
-
-          <p
-            style={{
-              fontSize: "1.5vh",
-              fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
-              color: "white",
-              margin: "0",
-            }}
-          >
-            All rights reserved, Design by Filippo Milazzo<br />
-            All site content is the property of Eternal Ghosts unless otherwise
-            noted<br />
-            and is not to be used or reproduced without advance written
-            permission
+            © 2023 Eternal Ghosts, All Rights Reserved.
           </p>
         </div>
       </body>

@@ -1,15 +1,16 @@
 // app/band/page.tsx
-import Image from "next/image";
-import Link from "next/link";
 import clsx from "clsx";
+import Image from "next/image";
 
-// Client-Komponente für Animation
 import AnimatedBandMember from "@/components/band/AminatedBandMember";
+import HeaderNav from "@/components/layout/HeaderNav";
+import PageBar from "@/components/layout/PageBar";
+import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
+import NoScrollVertical from "@/components/layout/NoScrollVertical";
 
 import globalStyles from "@/styles/globals.module.css";
 import bandStyles from "@/styles/band.module.css";
 
-// METADATA (nur in Server-Komponenten möglich)
 export const metadata = {
   title: "Eternal Ghosts – Band",
   description: "Eternal Ghosts Band Members",
@@ -17,122 +18,39 @@ export const metadata = {
 
 export default function BandPage() {
   return (
-    <div className={globalStyles.html}>
-      <main>
-        {/* Navigation Header */}
-        <header className={globalStyles.header}>
-          <nav>
-            <Link href="/news" className={globalStyles.siteTitle}>
-              NEWS
-            </Link>
-            <Link
-              href="/band"
-              className={clsx(globalStyles.siteTitle, globalStyles.active)}
-            >
-              BAND
-            </Link>
-            <Link href="/live" className={globalStyles.siteTitle}>
-              LIVE
-            </Link>
-            <Link href="/gallery" className={globalStyles.siteTitle}>
-              GALLERY
-            </Link>
-            <Link href="/tour" className={globalStyles.siteTitle}>
-              TOUR
-            </Link>
-            <Link href="/releases" className={globalStyles.siteTitle}>
-              RELEASES
-            </Link>
-            <Link href="/media" className={globalStyles.siteTitle}>
-              MEDIA
-            </Link>
-            <Link href="/links" className={globalStyles.siteTitle}>
-              LINKS
-            </Link>
-            <Link href="/contact" className={globalStyles.siteTitle}>
-              CONTACT
-            </Link>
-          </nav>
-        </header>
+    <NoScrollHorizontal>
+      <NoScrollVertical>
+        <div className={globalStyles.html}>
+          <main>
+            <HeaderNav active="band" />
 
-        {/* Logo + Social Icons + Section Navigation */}
-        <section>
-          <div
-            className={clsx(
-              globalStyles.logoContainer,
-              bandStyles.logoContainer
-            )}
-          >
-            <Image
-              src="/pictures/favImage.png"
-              alt="Eternal Ghosts Logo"
-              className={bandStyles.logo}
-              width={3840}
-              height={2160}
-            />
-          </div>
-
-          <div className={bandStyles.navPageBar}>
-            <div>
-              <Link href="https://www.facebook.com/profile.php?id=61573032031881">
+            <section>
+              <div className={clsx(globalStyles.logoContainer, bandStyles.logoContainer)}>
                 <Image
-                  src="/pictures/facebook-icon.png"
-                  alt="Eternal Ghosts Facebook"
-                  className={bandStyles.facebookIcon}
-                  width={94.1084}
-                  height={94.1083}
+                  src="/pictures/favImage.png"
+                  alt="Eternal Ghosts Logo"
+                  className={bandStyles.logo}
+                  width={3840}
+                  height={2160}
                 />
-              </Link>
-            </div>
+              </div>
 
-            <Link
-              className={clsx(
-                bandStyles.navPageTitleTwo,
-                bandStyles.active
-              )}
-              href="/band"
-            >
-              MEMBERS
-            </Link>
+              {/* PageBar mit Facebook (links) und YouTube + Instagram (rechts) */}
+              <PageBar 
+                leftLink={{ label: "MEMBERS", href: "/band" }}
+                rightLink={{ label: "BIOGRAPHY", href: "/biography" }}
+              />
 
-            <div>
-              <Link href="https://www.youtube.com/watch?v=B_YRm7NKeas">
-                <Image
-                  src="/pictures/youtube-icon.png"
-                  className={bandStyles.youtubeIcon}
-                  alt="Eternal Ghosts Youtube"
-                  width={94.1084}
-                  height={94.1083}
-                />
-              </Link>
-            </div>
+            </section>
 
-            <Link className={bandStyles.navPageTitleThree} href="/biography">
-              BIOGRAPHY
-            </Link>
+            <section>
+              <AnimatedBandMember />
+            </section>
 
-            <div>
-              <Link href="https://www.instagram.com/eternalghosts0/">
-                <Image
-                  src="/pictures/instagram-icon.png"
-                  className={bandStyles.instagramIcon}
-                  alt="Eternal Ghosts Instagram"
-                  width={94.1084}
-                  height={94.1083}
-                />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Band Member Animation (CLIENT) */}
-        <section>
-          <AnimatedBandMember />
-        </section>
-
-        {/* Footer */}
-        <footer className={globalStyles.footer}></footer>
-      </main>
-    </div>
+            <footer className={globalStyles.footer}></footer>
+          </main>
+        </div>
+      </NoScrollVertical>
+    </NoScrollHorizontal>
   );
 }

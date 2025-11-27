@@ -42,7 +42,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.active {
+.navPageTitleTwo.active {
   color: #ff0000;
 }
 
@@ -60,6 +60,10 @@
   border-radius: 1vh;
   border: 0.1vh solid #ff0000;
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navPageTitleThree.active {
+  color: #ff0000;
 }
 
 .navPageTitleTwo:hover, .navPageTitleThree:hover {

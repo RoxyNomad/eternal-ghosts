@@ -1,63 +1,45 @@
 // app/releases/page.tsx
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import clsx from "clsx";
+
 import AnimatedLogo from "@/components/logo/RollInLogo";
+import HeaderNav from "@/components/layout/HeaderNav";
+import SocialIcons from "@/components/layout/SocialIcons";
+import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
+import NoScrollVertical from "@/components/layout/NoScrollVertical";
+
 import globalStyles from "@/styles/globals.module.css";
 import releaseStyles from "@/styles/releases.module.css";
 
 export default function Releases() {
   return (
-    <div className={globalStyles.html}>
-      <main>
-        <header className={globalStyles.header}>
-          <nav>
-            <Link href="/news" className={globalStyles.siteTitle}>NEWS</Link>
-            <Link href="/band" className={globalStyles.siteTitle}>BAND</Link>
-            <Link href="/live" className={globalStyles.siteTitle}>LIVE</Link>
-            <Link href="/gallery" className={globalStyles.siteTitle}>GALLERY</Link>
-            <Link href="/tour" className={globalStyles.siteTitle}>TOUR</Link>
-            <Link href="/releases" className={clsx(globalStyles.siteTitle, globalStyles.active)}>RELEASES</Link>
-            <Link href="/media" className={globalStyles.siteTitle}>MEDIA</Link>
-            <Link href="/links" className={globalStyles.siteTitle}>LINKS</Link>
-            <Link href="/contact" className={globalStyles.siteTitle}>CONTACT</Link>
-          </nav>
-        </header>
+    <NoScrollHorizontal>
+      <NoScrollVertical>
+        <div className={globalStyles.html}>
+          <main>
+            <HeaderNav active='releases'/>
 
-        <section>
-          <div className={clsx(globalStyles.logoContainer, releaseStyles.logoContainer)}>
-            <AnimatedLogo />
-          </div>
+            <section>
+              <div className={clsx(globalStyles.logoContainer, releaseStyles.logoContainer)}>
+                <AnimatedLogo />
+              </div>
 
-          <div className={releaseStyles.navPageBar}>
-            <p className={releaseStyles.navPageTitle}>RELEASES</p>
-            <div>
-              <Link href="https://www.facebook.com/profile.php?id=61573032031881">
-                <Image src="/pictures/facebook-icon.png" alt="Eternal Ghosts Facebook" className={releaseStyles.facebookIcon} width={94.1084} height={94.1083}/>
-              </Link>
-            </div>
-            <div>
-              <Link href="https://www.youtube.com/watch?v=B_YRm7NKeas">
-                <Image src="/pictures/youtube-icon.png" className={releaseStyles.youtubeIcon} alt="Eternal Ghosts Youtube" width={94.1084} height={94.1083}/>
-              </Link>
-            </div>
-            <div>
-              <Link href="https://www.instagram.com/eternalghosts0/">
-                <Image src="/pictures/instagram-icon.png" className={releaseStyles.instagramIcon} alt="Eternal Ghosts Instagram" width={94.1084} height={94.1083}/>
-              </Link>
-            </div>
-          </div>
-        </section>
+              <div className={releaseStyles.navPageBar}>
+                <p className={releaseStyles.navPageTitle}>RELEASES</p>
+                <SocialIcons />
+              </div>
+            </section>
 
-        <section>
-          {/* Optionaler Content */}
-        </section>
+            <section>
+              {/* Optionaler Content */}
+            </section>
 
-        <footer className={globalStyles.footer}>
-          {/* Optional footer content */}
-        </footer>
-      </main>
-    </div>
+            <footer className={globalStyles.footer}>
+              {/* Optional footer content */}
+            </footer>
+          </main>
+        </div>
+      </NoScrollVertical>
+    </NoScrollHorizontal>
   );
 }
