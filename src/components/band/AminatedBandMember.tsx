@@ -4,15 +4,9 @@
 // wird diese Datei eine Client Component.
 
 import { motion } from "framer-motion";
-import styles from "@/styles/members.module.css";
+import styles from "@/styles/components/Members.module.scss";
 import Image from "next/image";
 
-/**
- * AnimatedBandMember Component
- * ----------------------------
- * Displays four band members with entrance animation.
- * Uses Framer Motion for scaling + fade-in effect.
- */
 const AnimatedBandMember = () => {
   return (
     <motion.div

@@ -1,7 +1,7 @@
 // src/components/layout/footer.tsx
 import Link from "next/link";
 
-import footerStyles from "@/styles/footer.module.css";
+import footerStyles from "@/styles/components/Footer.module.scss";
 
 export default function Footer() {
 	return(

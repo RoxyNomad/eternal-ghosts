@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 import SocialIconsBand from "./social-icons/SocialIconsBand";
 
-import styles from "@/styles/PageBar.module.css";
+import styles from "@/styles/components/PageBar.module.scss";
 
 interface LinkItem {
   href: string;

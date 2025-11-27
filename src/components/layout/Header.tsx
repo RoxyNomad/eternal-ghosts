@@ -3,21 +3,21 @@
 
 import Link from "next/link";
 import clsx from "clsx";
-import globalStyles from "@/styles/globals.module.css";
+import styles from "@/styles/components/Header.module.scss";
 
 export default function HeaderNav({ active }: { active?: string }) {
   const links = ["news", "band", "live", "gallery", "tour", "releases", "media", "links", "contact"];
 
   return (
-    <header className={globalStyles.header}>
+    <header className={styles.header}>
       <nav>
         {links.map((link) => (
           <Link
             key={link}
             href={`/${link}`}
             className={clsx(
-              globalStyles.siteTitle,
-              active === link && globalStyles.active
+              styles.siteTitle,
+              active === link && styles.active
             )}
           >
             {link.toUpperCase()}

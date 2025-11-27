@@ -1,7 +1,7 @@
 // app/privacy/page.tsx
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal";
 
-import styles from "@/styles/terms.module.css";
+import styles from "@/styles/terms.module.scss";
 
 export const metadata = {
   title: "Privacy Policy – Eternal Ghosts",

@@ -1,33 +1,30 @@
 // app/news/page.tsx
 import React from "react";
-import clsx from "clsx";
 
 import AnimatedPictureAndLogo from "@/components/news/NewsAmination";
-import HeaderNav from "@/components/layout/HeaderNav";
+import HeaderNav from "@/components/layout/Header";
 import SocialIconsNews from "@/components/layout/social-icons/SocialIconsNews";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
 import Footer from "@/components/layout/Footer";
 
-import globalStyles from "@/styles/globals.module.css";
-import newsStyles from "@/styles/news.module.css";
+import styles from "@/styles/pages/news.module.scss";
 
 export default function News() {
   return (
     <NoScrollHorizontal>
       <NoScrollVertical>
-        <div className={globalStyles.html}>
+        <div className='html'>
           <main>
             <HeaderNav active='news'/>
-
             <section>
-              <div className={clsx(globalStyles.logoContainer, newsStyles.logoContainer)}>
+              <div className='logoContainer'>
                 <AnimatedPictureAndLogo />
               </div>
-              <div className={newsStyles.navPageBar}>
-                <div className={newsStyles.navPageTitle}>NEWS</div>
+              <div className={styles.navPageBar}>
+                <div className={styles.navPageTitle}>NEWS</div>
                 <SocialIconsNews />
-                <button className={newsStyles.readMore}>READMORE</button>
+                <button className={styles.readMore}>READMORE</button>
               </div>
             </section>
             <Footer />

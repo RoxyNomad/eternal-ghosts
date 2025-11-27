@@ -3,21 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Image from "next/image";
 
-import "@/styles/globals.module.css";
-import "@/styles/band.module.css";
-import "@/styles/biography.module.css";
-import "@/styles/contact.module.css";
-import "@/styles/gallery.module.css";
-import "@/styles/links.module.css";
-import "@/styles/live.module.css";
-import "@/styles/media.module.css";
-import "@/styles/members.module.css";
-import "@/styles/news.module.css";
-import "@/styles/releases.module.css";
-import "@/styles/tour.module.css";
-import "@/styles/terms.module.css";
-
-
+import "@/styles/globals.scss";
 
 // Local Font Migration
 const myFont = localFont({

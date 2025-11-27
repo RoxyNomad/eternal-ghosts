@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import styles from "@/styles/NewsAnimation.module.css";
+import styles from "@/styles/components/NewsAnimation.module.scss";
 
 const AnimatedPictureAndLogo = () => {
   return (

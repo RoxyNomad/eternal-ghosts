@@ -1,0 +1,26 @@
+/* src/styles/terms.module.css */
+.termsPage {
+  width: 100%;
+	min-height: 100vh;
+  flex: 1;
+  overflow-y: auto;
+
+  .termsContent {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 60vw;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    line-height: 1.6;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-top: 1.5rem;
+      font-size: 1.4rem;
+    }
+  }
+}

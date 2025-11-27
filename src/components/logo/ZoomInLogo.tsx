@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import styles from "@/styles/ZoomInLogo.module.css"; // Absolute Import für App Router
+import styles from "@/styles/components/ZoomInLogo.module.scss"; // Absolute Import für App Router
 
 const ZoomInLogo = () => {
   return (

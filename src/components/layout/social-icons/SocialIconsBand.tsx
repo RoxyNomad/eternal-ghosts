@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/styles/SocialIconsBand.module.css";
+import styles from "@/styles/components/SocialIconsBand.module.scss";
 
 interface IconItem {
   src: string;

@@ -1,18 +1,13 @@
 // src/app/media/page.tsx
 import React from "react";
-import clsx from "clsx";
 
 import AnimatedLogo from "@/components/logo/ZoomOutLogo";
-import HeaderNav from "@/components/layout/HeaderNav";
+import HeaderNav from "@/components/layout/Header";
 import SocialIcons from "@/components/layout/social-icons/SocialIcons";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
 import Footer from "@/components/layout/Footer";
 
-import globalStyles from "@/styles/globals.module.css";
-import mediaStyles from "@/styles/media.module.css";
-
-// Seiten-Metadaten
 export const metadata = {
   title: "Eternal Ghosts media",
 };
@@ -21,16 +16,15 @@ const MediaPage = () => {
   return (
     <NoScrollHorizontal>
       <NoScrollVertical>
-        <div className={globalStyles.html}>
+        <div className='html'>
           <main>
             <HeaderNav active='media'/>
-
             <section>
-              <div className={clsx(globalStyles.logoContainer, mediaStyles.logoContainer)}>
+              <div className='logoContainer'>
                 <AnimatedLogo />
               </div>
-              <div className={mediaStyles.navPageBar}>
-                <p className={mediaStyles.navPageTitle}>MEDIA</p>
+              <div className='navPageBar'>
+                <p className='navPageTitle'>MEDIA</p>
                 <SocialIcons />
               </div>
             </section>
