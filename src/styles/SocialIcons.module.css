@@ -1,0 +1,33 @@
+.facebookIcon {
+  position: absolute;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 3.5vh;
+  left: 25%;
+  transform: translateX(-75%);
+  top: 7%;
+}
+
+.instagramIcon {
+  position: absolute;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 2.65vh;
+  right: 25%;
+  transform: translateX(75%);
+  top: 7%;
+}
+
+.youtubeIcon {
+  position: absolute;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 2.65vh;
+  left: 50%;
+  transform: translate(-50%);
+  top: 7%;
+}
+
+.facebookIcon:hover, .instagramIcon:hover, .youtubeIcon:hover {
+  cursor: pointer;
+}

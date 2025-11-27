@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import linkStyles from "@/styles/links.module.css";
+import styles from "@/styles/SocialIconsNews.module.css";
 
 interface IconItem {
   src: string;
@@ -18,19 +18,19 @@ export default function SocialIcons() {
       src: "/pictures/facebook-icon.png",
       href: "https://www.facebook.com/profile.php?id=61573032031881",
       alt: "Facebook",
-      className: linkStyles.facebookIcon,
+      className: styles.facebookIcon,
     },
     {
       src: "/pictures/youtube-icon.png",
       href: "https://www.youtube.com/watch?v=B_YRm7NKeas",
       alt: "YouTube",
-      className: linkStyles.youtubeIcon,
+      className: styles.youtubeIcon,
     },
     {
       src: "/pictures/instagram-icon.png",
       href: "https://www.instagram.com/eternalghosts0/",
       alt: "Instagram",
-      className: linkStyles.instagramIcon,
+      className: styles.instagramIcon,
     },
   ];
 

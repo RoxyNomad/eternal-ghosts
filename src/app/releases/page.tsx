@@ -4,9 +4,10 @@ import clsx from "clsx";
 
 import AnimatedLogo from "@/components/logo/RollInLogo";
 import HeaderNav from "@/components/layout/HeaderNav";
-import SocialIcons from "@/components/layout/SocialIcons";
+import SocialIcons from "@/components/layout/social-icons/SocialIcons";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import releaseStyles from "@/styles/releases.module.css";
@@ -33,12 +34,9 @@ export default function Releases() {
             <section>
               {/* Optionaler Content */}
             </section>
-
-            <footer className={globalStyles.footer}>
-              {/* Optional footer content */}
-            </footer>
           </main>
         </div>
+        <Footer />
       </NoScrollVertical>
     </NoScrollHorizontal>
   );

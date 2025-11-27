@@ -76,28 +76,6 @@ export default function RootLayout({
 
         {/* Page Content */}
         {children}
-
-        {/* Footer */}
-        <div
-          style={{
-            textAlign: "center",
-            position: "relative",
-            bottom: '2vh',
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "1rem",
-              fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
-              color: "white",
-              margin: "0",
-            }}
-          >
-            © 2023 Eternal Ghosts, All Rights Reserved.
-          </p>
-        </div>
       </body>
     </html>
   );

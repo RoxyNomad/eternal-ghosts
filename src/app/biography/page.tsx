@@ -6,6 +6,7 @@ import HeaderNav from "@/components/layout/HeaderNav";
 import PageBar from "@/components/layout/PageBar";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import bandStyles from "@/styles/band.module.css";
@@ -44,9 +45,9 @@ export default function BiographyPage() {
                 </p>
               </div>
             </section>
-            <footer className={globalStyles.footer}>{/* Optional */}</footer>
           </main>
         </div>
+        <Footer />
       </NoScrollVertical>
     </NoScrollHorizontal>
     

@@ -5,6 +5,8 @@ import ContactForm from "@/components/forms/ContactForm";
 import AnimatedLogo from "@/components/logo/RollInLogo";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import SocialIcons from "@/components/layout/social-icons/SocialIcons";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import contactStyles from "@/styles/contact.module.css";
@@ -29,6 +31,10 @@ export default function ContactPage() {
               <div className={clsx(globalStyles.logoContainer, contactStyles.logoContainer)}>
                 <AnimatedLogo />
               </div>
+              <div className={contactStyles.navPageBar}>
+                <p className={contactStyles.navPageTitle}>CONTACT</p>
+                <SocialIcons />
+              </div>
             </section>
 
             {/* Contact Form */}
@@ -38,6 +44,7 @@ export default function ContactPage() {
 
           </main>
         </div>
+        <Footer />
       </NoScrollVertical>
     </NoScrollHorizontal>
   );

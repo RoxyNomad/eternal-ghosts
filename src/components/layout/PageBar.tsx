@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-import SocialIcons from "./SocialIcons";
+import SocialIconsBand from "./social-icons/SocialIconsBand";
 
-import bandStyles from "@/styles/band.module.css";
+import styles from "@/styles/PageBar.module.css";
 
 interface LinkItem {
   href: string;
@@ -28,28 +28,28 @@ export default function PageBar({ className, leftLink, rightLink }: PageBarProps
   const isRightActive = pathname === rightLink.href;
 
   return (
-    <div className={bandStyles.navPageBar}>
+    <div className={styles.navPageBar}>
       <div className={clsx(className)}>
         {/* LEFT LINK */}
         <Link
           href={leftLink.href}
           className={clsx(
-            bandStyles.navPageTitleTwo,
-            isLeftActive && bandStyles.active
+            styles.navPageTitleTwo,
+            isLeftActive && styles.active
           )}
         >
           {leftLink.label}
         </Link>
 
         {/* CENTER ICONS */}
-        <SocialIcons />
+        <SocialIconsBand />
 
         {/* RIGHT LINK */}
         <Link
           href={rightLink.href}
           className={clsx(
-            bandStyles.navPageTitleThree,
-            isRightActive && bandStyles.active
+            styles.navPageTitleThree,
+            isRightActive && styles.active
           )}
         >
           {rightLink.label}

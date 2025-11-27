@@ -4,9 +4,10 @@ import clsx from "clsx";
 
 import AnimatedPictureAndLogo from "@/components/news/NewsAmination";
 import HeaderNav from "@/components/layout/HeaderNav";
-import SocialIconsNews from "@/components/layout/SocialIconsNews";
+import SocialIconsNews from "@/components/layout/social-icons/SocialIconsNews";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import newsStyles from "@/styles/news.module.css";
@@ -29,13 +30,11 @@ export default function News() {
                 <button className={newsStyles.readMore}>READMORE</button>
               </div>
             </section>
-
-            <footer className={globalStyles.footer}>
-              {/* Optional footer content */}
-            </footer>
+            <Footer />
           </main>
         </div>
       </NoScrollVertical>
     </NoScrollHorizontal>
+
   );
 }

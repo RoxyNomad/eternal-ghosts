@@ -16,7 +16,7 @@
 }
 
 .siteTitle {
-  font-size: 3.975vh;
+  font-size: 2.5rem;
   font-family: var(--bravada-arma), sans-serif;
   color: white;
   text-decoration: none;
@@ -30,8 +30,7 @@
 .siteTitle:hover {
   color: white;
   font-weight: 900;
-  font-size: 3vw;
-  line-height: 4.2vh;
+  letter-spacing: 0.5rem;
 }
 
 .active {

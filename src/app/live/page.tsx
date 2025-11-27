@@ -4,9 +4,10 @@ import clsx from "clsx";
 
 import AnimatedLogo from "@/components/logo/ZoomInLogo";
 import HeaderNav from "@/components/layout/HeaderNav";
-import SocialIcons from "@/components/layout/SocialIcons";
+import SocialIcons from "@/components/layout/social-icons/SocialIcons";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import liveStyles from "@/styles/live.module.css";
@@ -37,12 +38,9 @@ const LivePage: React.FC = () => {
             <section>
               {/* Hier können später weitere Inhalte eingefügt werden */}
             </section>
-
-            <footer className={globalStyles.footer}>
-              {/* Optional footer content */}
-            </footer>
           </main>
         </div>
+        <Footer />
       </NoScrollVertical>
     </NoScrollHorizontal>   
   );

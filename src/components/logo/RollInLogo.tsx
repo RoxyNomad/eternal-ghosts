@@ -6,7 +6,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import styles from "@/styles/band.module.css";
+import styles from "@/styles/RollInLogo.module.css";
 
 /**
  * Returns a random direction from which the logo flies in.

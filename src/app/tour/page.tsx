@@ -4,9 +4,10 @@ import clsx from "clsx";
 
 import AnimatedLogo from "@/components/logo/RollInLogo";
 import HeaderNav from "@/components/layout/HeaderNav";
-import SocialIcons from "@/components/layout/SocialIcons";
+import SocialIcons from "@/components/layout/social-icons/SocialIcons";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import tourStyles from "@/styles/tour.module.css";
@@ -37,12 +38,9 @@ const Tour: React.FC = () => {
             <section>
               {/* Hier später Tour-Termine oder Inhalte */}
             </section>
-
-            <footer className={globalStyles.footer}>
-              {/* Optional footer content */}
-            </footer>
           </main>
         </div>
+        <Footer />
       </NoScrollVertical>
     </NoScrollHorizontal>
     

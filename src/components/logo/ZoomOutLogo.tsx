@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import styles from "@/styles/media.module.css"; // Absolute Import für App Router
+import styles from "@/styles/ZoomOutLogo.module.css"; // Absolute Import für App Router
 
 const ZoomOutLogo = () => {
   return (

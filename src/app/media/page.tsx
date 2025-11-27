@@ -4,9 +4,10 @@ import clsx from "clsx";
 
 import AnimatedLogo from "@/components/logo/ZoomOutLogo";
 import HeaderNav from "@/components/layout/HeaderNav";
-import SocialIcons from "@/components/layout/SocialIcons";
+import SocialIcons from "@/components/layout/social-icons/SocialIcons";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import mediaStyles from "@/styles/media.module.css";
@@ -33,12 +34,12 @@ const MediaPage = () => {
                 <SocialIcons />
               </div>
             </section>
-
-            <section></section>
-
-            <footer className={globalStyles.footer}></footer>
+            <section>
+              {/* Hier später Medien-Inhalte */}
+            </section>
           </main>
         </div>
+        <Footer />
       </NoScrollVertical>
     </NoScrollHorizontal>
   );

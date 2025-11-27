@@ -4,9 +4,10 @@ import clsx from "clsx";
 
 import AnimatedLogo from "@/components/logo/RollInLogo";
 import HeaderNav from "@/components/layout/HeaderNav";
-import SocialIcons from "@/components/layout/SocialIcons";
+import SocialIcons from "@/components/layout/social-icons/SocialIcons";
 import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/components/layout/NoScrollVertical";
+import Footer from "@/components/layout/Footer";
 
 import globalStyles from "@/styles/globals.module.css";
 import galleryStyles from "@/styles/gallery.module.css";
@@ -38,14 +39,11 @@ const Gallery: React.FC = () => {
               {/* Hier können später Galerie-Bilder eingefügt werden */}
             </section>
 
-            <footer className={globalStyles.footer}>
-              {/* Optional footer content */}
-            </footer>
           </main>
         </div>
+        <Footer />
       </NoScrollVertical>
     </NoScrollHorizontal>
-    
   );
 };
 

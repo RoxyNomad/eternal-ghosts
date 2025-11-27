@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import contactStyles from "@/styles/contact.module.css";
+import styles from "@/styles/ContactForm.module.css";
 
 export default function ContactForm() {
   const [form] = useState({ name: "", email: "", subject: "", message: "" });
@@ -35,28 +35,28 @@ export default function ContactForm() {
   };
 
   return (
-    <div className={contactStyles.contact}>
+    <div className={styles.contact}>
       <form onSubmit={handleSubmit}>
-        <div className={contactStyles.contactForm}>
+        <div className={styles.contactForm}>
           
           {/* LEFT */}
-          <div className={contactStyles.contactFormLeft}>
+          <div className={styles.contactFormLeft}>
             <label htmlFor="name">Name:</label>
-            <input type="text" name="name" className={contactStyles.name} onChange={handleChange} required />
+            <input type="text" name="name" className={styles.name} onChange={handleChange} required />
 
             <label htmlFor="email">Email:</label>
-            <input type="email" name="email" className={contactStyles.email} onChange={handleChange} required />
+            <input type="email" name="email" className={styles.email} onChange={handleChange} required />
 
             <label htmlFor="subject">Subject:</label>
-            <input type="text" name="subject" className={contactStyles.subject} onChange={handleChange} required />
+            <input type="text" name="subject" className={styles.subject} onChange={handleChange} required />
           </div>
 
           {/* RIGHT */}
-          <div className={contactStyles.contactFormRight}>
+          <div className={styles.contactFormRight}>
             <label htmlFor="message">Message:</label>
-            <textarea name="message" className={contactStyles.message} onChange={handleChange} required />
+            <textarea name="message" className={styles.message} onChange={handleChange} required />
 
-            <input className={contactStyles.submit} type="submit" value="Submit" />
+            <input className={styles.submit} type="submit" value="Submit" />
           </div>
 
         </div>
@@ -67,7 +67,7 @@ export default function ContactForm() {
       <div>
         <p>For any questions or inquiries, please contact us at</p>
         <p>
-          Email: <a className={contactStyles.mailto} href="mailto: eternal.ghosts@gmx.ch">
+          Email: <a className={styles.mailto} href="mailto: eternal.ghosts@gmx.ch">
             eternal.ghosts@gmx.ch
           </a>
         </p>

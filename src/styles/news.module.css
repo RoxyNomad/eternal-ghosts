@@ -12,31 +12,6 @@
   top: 61vh;
 }
 
-.Picture {
-  width: 36vw;
-  height: 57vh;
-  border-radius: 1vh;
-  box-shadow: 0 0 10px #000;
-
-  position: absolute;
-  top: 0;
-  left: 12vw;
-  transform-origin: center;
-}
-
-.logoXL {
-  width: 36vw;
-  height: 57vh;
-  opacity: 0.6;
-  border-radius: 1vh;
-  box-shadow: 0 0 10px #000;
-
-  position: absolute;
-  top: 0;
-  right: 12vw;
-  transform-origin: center;
-}
-
 .navPageTitle {
   position: absolute;
   font-family: Verdana, sans-serif;
@@ -45,39 +20,6 @@
   margin: 0 auto;
   text-decoration: none;
   letter-spacing: 1vw;
-}
-
-.facebookIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 3.5vh;
-  left: 31.5%;
-  top: 8%
-}
-
-
-.instagramIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 2.65vh;
-  left: 66%;
-  top: 8%;
-}
-
-.youtubeIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 2.65vh;
-  left: 48.7%;
-  top: 8%;
-}
-
-.facebookIcon, .instagramIcon, .youtubeIcon {
-  /*down, right, blur, spread, color*/
-  box-shadow: 8px 5px 5px 3px black;
 }
 
 .readMore {
@@ -95,14 +37,11 @@
   padding-left: 1vh; 
 }
 
-.facebookIcon:hover, .instagramIcon:hover, .youtubeIcon:hover, .readMore:hover {
-  transform: scale(1.15);
-  cursor: pointer;
-}
-
 .readMore:hover {
   background-color: rgba(187, 187, 187, 0.2);
   font-weight: 900;
+  transform: scale(1.15);
+  cursor: pointer;
 }
 
 @media (max-width: 1366px) and (orientation: landscape) {

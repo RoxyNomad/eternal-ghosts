@@ -2,19 +2,6 @@
   height: 25.3vh;
 }
 
-.logo {
-  width: 28vw;
-  height: 35vh;
-  border-radius: 1vh;
-  opacity: 0.6;
-  box-shadow: 0 0 10px #000;
-
-  position: absolute;
-  top: 0;
-  right: 35.9vw;
-  transform-origin: center;
-}
-
 .navPageBar {
   position: relative;
   height: 5vh;
@@ -35,41 +22,4 @@
   margin: 0.4vh 0;
   text-decoration: none;
   letter-spacing: 1vw;
-}
-
-.facebookIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 3.5vh;
-  left: 25%;
-  top: 7%;
-}
-
-.instagramIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 2.65vh;
-  left: 75%;
-  top: 7%;
-}
-
-.youtubeIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 2.65vh;
-  left: 48.7%;
-  top: 7%;
-}
-
-.facebookIcon, .instagramIcon, .youtubeIcon {
-  /*down, right, blur, spread, color*/
-  box-shadow: 8px 5px 5px 3px black;
-}
-
-.facebookIcon:hover, .instagramIcon:hover, .youtubeIcon:hover {
-  transform: scale(1.15);
-  cursor: pointer;
 }
