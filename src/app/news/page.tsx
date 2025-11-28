@@ -1,14 +1,14 @@
 // app/news/page.tsx
 import React from "react";
 
-import AnimatedPictureAndLogo from "@/components/news/NewsAmination";
-import HeaderNav from "@/components/layout/Header";
-import SocialIconsNews from "@/components/layout/social-icons/SocialIconsNews";
-import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
-import NoScrollVertical from "@/components/layout/NoScrollVertical";
-import Footer from "@/components/layout/Footer";
+import AnimatedPictureAndLogo from "@/ui/components/news/NewsAmination";
+import HeaderNav from "@/ui/components/layout/Header";
+import SocialIcons from "@/ui/components/layout/SocialIcons";
+import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
+import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
+import Footer from "@/ui/components/layout/Footer";
 
-import styles from "@/styles/pages/news.module.scss";
+import styles from "@/ui/styles/pages/news.module.scss";
 
 export default function News() {
   return (
@@ -23,7 +23,7 @@ export default function News() {
               </div>
               <div className={styles.navPageBar}>
                 <div className={styles.navPageTitle}>NEWS</div>
-                <SocialIconsNews />
+                <SocialIcons variant='news' />
                 <button className={styles.readMore}>READMORE</button>
               </div>
             </section>

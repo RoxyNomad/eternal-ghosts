@@ -1,11 +1,11 @@
 // src/app/contact/page.tsx
-import HeaderNav from "@/components/layout/Header";
-import ContactForm from "@/components/forms/ContactForm";
-import AnimatedLogo from "@/components/logo/RollInLogo";
-import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
-import NoScrollVertical from "@/components/layout/NoScrollVertical";
-import SocialIcons from "@/components/layout/social-icons/SocialIcons";
-import Footer from "@/components/layout/Footer";
+import HeaderNav from "@/ui/components/layout/Header";
+import ContactForm from "@/ui/components/forms/ContactForm";
+import AnimatedLogo from "@/ui/components/logo/RollInLogo";
+import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
+import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
+import SocialIcons from "@/ui/components/layout/SocialIcons";
+import Footer from "@/ui/components/layout/Footer";
 
 export const metadata = {
   title: "Contact - Eternal Ghosts",

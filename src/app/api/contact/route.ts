@@ -1,18 +1,23 @@
 // src/app/api/contact/route.ts
-import { NextRequest, NextResponse } from "next/server";
-import { SendContactMessageCommand } from "@/domain/commands/SendContactMessageCommand";
-import { SendContactMessageHandler } from "@/application/commands/SendContactMessageHandler";
 
-export async function POST(req: NextRequest) {
+import { NextResponse } from "next/server";
+
+import { SendContactMessageHandler } from "@/application/handlers/SendContactMessageHandler";
+import { SendContactMessageCommand } from "@/application/commands/SendContactMessageCommand";
+import { NodemailerMailService } from "@/infrastructure/services/NodemailerMailService";
+
+export async function POST(req: Request) {
   try {
     const body = await req.json();
+
+    const handler = new SendContactMessageHandler(new NodemailerMailService());
     const command = new SendContactMessageCommand(body);
-    const handler = new SendContactMessageHandler();
 
-    await handler.execute(command);
+    const result = await handler.execute(command);
 
-    return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ message: "Failed to send email", error }, { status: 500 });
+    return NextResponse.json(result, { status: 200 });
+
+  } catch (e: any) {
+    return NextResponse.json({ error: e.message }, { status: 400 });
   }
 }

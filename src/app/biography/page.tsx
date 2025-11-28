@@ -1,12 +1,12 @@
 // src/app/biography/page.tsx
-import AnimatedLogo from "@/components/logo/RollInLogo";
-import HeaderNav from "@/components/layout/Header";
-import PageBar from "@/components/layout/PageBar";
-import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
-import NoScrollVertical from "@/components/layout/NoScrollVertical";
-import Footer from "@/components/layout/Footer";
+import AnimatedLogo from "@/ui/components/logo/RollInLogo";
+import HeaderNav from "@/ui/components/layout/Header";
+import PageBar from "@/ui/components/layout/PageBarBand";
+import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
+import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
+import Footer from "@/ui/components/layout/Footer";
 
-import styles from "@/styles/pages/biography.module.scss";
+import styles from "@/ui/styles/pages/biography.module.scss";
 
 export const metadata = {
   title: "Eternal Ghosts – Biography",

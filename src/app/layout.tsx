@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Image from "next/image";
 
-import "@/styles/globals.scss";
+import "@/ui/styles/globals.scss";
 
 // Local Font Migration
 const myFont = localFont({

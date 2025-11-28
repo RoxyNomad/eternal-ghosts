@@ -1,14 +1,14 @@
 // app/band/page.tsx
 import Image from "next/image";
 
-import AnimatedBandMember from "@/components/band/AminatedBandMember";
-import HeaderNav from "@/components/layout/Header";
-import PageBar from "@/components/layout/PageBar";
-import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal"
-import NoScrollVertical from "@/components/layout/NoScrollVertical";
-import Footer from "@/components/layout/Footer";
+import AnimatedBandMembers from "@/ui/components/band/AminatedBandMembers";
+import HeaderNav from "@/ui/components/layout/Header";
+import PageBar from "@/ui/components/layout/PageBarBand";
+import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
+import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
+import Footer from "@/ui/components/layout/Footer";
 
-import styles from "@/styles/pages/band.module.scss";
+import styles from "@/ui/styles/pages/band.module.scss";
 
 export const metadata = {
   title: "Eternal Ghosts – Band",
@@ -38,7 +38,7 @@ export default function BandPage() {
               />
             </section>
             <section>
-              <AnimatedBandMember />
+              <AnimatedBandMembers />
             </section>
           </main>
         </div>

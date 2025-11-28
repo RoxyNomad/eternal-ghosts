@@ -1,7 +1,7 @@
 // app/terms/page.tsx
-import NoScrollHorizontal from "@/components/layout/NoScrollHorizontal";
+import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
 
-import termsStyles from "@/styles/terms.module.scss";
+import termsStyles from "@/ui/styles/pages/terms.module.scss";
 
 export const metadata = {
   title: "Eternal Ghosts – Terms of Service",
