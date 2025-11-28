@@ -7,6 +7,7 @@ import SocialIcons from "@/ui/components/layout/SocialIcons";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
 import Footer from "@/ui/components/layout/Footer";
+import EventList from '@/ui/components/live/EventsList'
 
 export const metadata = {
   title: "Eternal Ghosts live",
@@ -29,7 +30,7 @@ const LivePage: React.FC = () => {
               </div>
             </section>
             <section>
-              {/* Hier können später weitere Inhalte eingefügt werden */}
+              <EventList />
             </section>
           </main>
         </div>

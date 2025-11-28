@@ -1,0 +1,32 @@
+.eventsContainer {
+	color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 1rem;
+	width: 75svw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+
+	.upcomingEvents {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 1vh;
+    box-shadow: 0 0 10px #000;
+
+		.containerTitle {
+			font-size: 1.5rem;
+			letter-spacing: 0.5rem;
+		}
+	}
+
+	.pastEvents {
+		margin: 5vh 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 1vh;
+    box-shadow: 0 0 10px #000;
+
+		.containerTitle {
+			font-size: 1.5rem;
+			letter-spacing: 0.5rem;
+		}
+	}
+}

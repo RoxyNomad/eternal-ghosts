@@ -2,9 +2,12 @@
 "use client";
 import { useState } from "react";
 
-export default function ImageUpload() {
+interface Props {
+  onUpload: (url: string) => void;
+}
+
+export default function ImageUpload({ onUpload }: Props) {
   const [file, setFile] = useState<File | null>(null);
-  const [uploadedUrl, setUploadedUrl] = useState("");
 
   async function upload() {
     if (!file) return;
@@ -12,31 +15,15 @@ export default function ImageUpload() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("/api/upload-image", {
-      method: "POST",
-      body: formData
-    });
-
+    const res = await fetch("/api/upload-image", { method: "POST", body: formData });
     const data = await res.json();
-    setUploadedUrl(data.secure_url);
+    if (data.success) onUpload(data.secure_url);
   }
 
   return (
     <div>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => setFile(e.target.files?.[0] || null)}
-      />
-
-      <button onClick={upload}>Upload</button>
-
-      {uploadedUrl && (
-        <div>
-          <p>Upload erfolgreich:</p>
-          <img src={uploadedUrl} width={200} />
-        </div>
-      )}
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+      <button onClick={upload}>Upload Image</button>
     </div>
   );
 }

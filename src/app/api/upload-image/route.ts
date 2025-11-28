@@ -1,11 +1,6 @@
+// src/app/api/upload-image/route.ts
 import { NextResponse } from "next/server";
-import { v2 as cloudinary } from "cloudinary";
-
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
-  api_key: process.env.CLOUDINARY_API_KEY!,
-  api_secret: process.env.CLOUDINARY_API_SECRET!,
-});
+import { cloudinary } from "@/infrastructure/cloudinary/config";
 
 export async function POST(req: Request) {
   try {
@@ -19,25 +14,18 @@ export async function POST(req: Request) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    // Upload nach Cloudinary
-    const upload = await cloudinary.uploader.upload_stream(
-      { folder: "eternal-ghosts" },
-      (error, result) => {}
-    );
-
-    const stream = cloudinary.uploader.upload_stream(
-      { folder: "eternal-ghosts" },
-      (error, result) => {
-        if (error) {
-          console.error(error);
-          return;
+    const uploadResult = await new Promise<any>((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        { folder: "eternal-ghosts" },
+        (error, result) => {
+          if (error) return reject(error);
+          resolve(result);
         }
-      }
-    );
+      );
+      stream.end(buffer);
+    });
 
-    stream.end(buffer);
-
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, secure_url: uploadResult.secure_url });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
