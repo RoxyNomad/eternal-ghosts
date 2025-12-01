@@ -1,4 +1,4 @@
-// src/app/api/upload-image/route.ts
+// src/app/api/upload-image/band-mebers/route.ts
 import { NextResponse } from "next/server";
 import { cloudinary } from "@/infrastructure/cloudinary/config";
 
