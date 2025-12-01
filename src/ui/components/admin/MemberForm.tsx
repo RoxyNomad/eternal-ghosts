@@ -1,12 +1,12 @@
 // src/ui/components/admin/MemberForm.tsx
 import ImageUpload from "@/ui/components/admin/ImageUpload";
 
-import { useAdmin } from "@/hooks/useAdmin";
+import { useMembers } from "@/hooks/useMembers";
 
 import styles from '@/ui/styles/components/MemberForm.module.scss'
 
 export default function MemberForm() {
-	const { members, newMember, handleChange, handleCreate, handleDelete, setUploadedImage } = useAdmin();
+	const { members, newMember, handleChange, handleCreate, handleDelete, setUploadedImage } = useMembers();
 
 	return(
 		<div className={styles.memberContainer}>

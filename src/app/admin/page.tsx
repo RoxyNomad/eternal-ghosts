@@ -4,6 +4,7 @@ import HeaderNav from "@/ui/components/layout/Header";
 import EventForm from "@/ui/components/admin/EventForm";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
 import MemberForm from "@/ui/components/admin/MemberForm";
+import LivePictureForm from "@/ui/components/admin/LivePicturesForm";
 
 import styles from "@/ui/styles/pages/admin.module.scss";
 
@@ -14,6 +15,7 @@ export default function AdminPage() {
         <HeaderNav active="admin" />
         <MemberForm />
         <EventForm />
+        <LivePictureForm />
       </div>
     </NoScrollHorizontal>
   );

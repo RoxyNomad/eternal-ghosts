@@ -6,9 +6,10 @@ import styles from '@/ui/styles/components/ImageUpload.module.scss'
 
 interface Props {
   onUpload: (url: string) => void;
+  folder?: string;
 }
 
-export default function ImageUpload({ onUpload }: Props) {
+export default function ImageUpload({ onUpload, folder = "band-members" }: Props) {
   const [file, setFile] = useState<File | null>(null);
 
   async function upload() {
@@ -17,7 +18,7 @@ export default function ImageUpload({ onUpload }: Props) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("/api/upload-image/band-members", { method: "POST", body: formData });
+    const res = await fetch(`/api/upload-image/${folder}`, { method: "POST", body: formData });
     const data = await res.json();
     if (data.success) onUpload(data.secure_url);
   }

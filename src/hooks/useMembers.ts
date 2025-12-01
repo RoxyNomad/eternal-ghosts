@@ -1,4 +1,4 @@
-// src/hooks/useAdmin.ts
+// src/hooks/useMembers.ts
 "use client";
 import { useState, useEffect } from "react";
 import { BandMember } from "@/domain/entities/BandMemberEntity";
@@ -9,7 +9,7 @@ export interface NewMember {
   imageUrl: string;
 }
 
-export function useAdmin() {
+export function useMembers() {
   const [members, setMembers] = useState<BandMember[]>([]);
   const [newMember, setNewMember] = useState<NewMember>({ name: "", role: "", imageUrl: "" });
 
