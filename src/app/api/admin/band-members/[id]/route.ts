@@ -5,7 +5,13 @@ import { BandMemberService } from "@/infrastructure/services/BandMemberService";
 
 const service = new BandMemberService(new DbBandMemberRepository());
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-  await service.deleteMember(Number(params.id));
+export async function DELETE(
+  req: Request,
+  context: { params: Promise<{ id: string }> }
+) {
+  const { id } = await context.params; // 🔥 Muss awaited werden
+
+  await service.deleteMember(Number(id));
+
   return NextResponse.json({ success: true });
 }

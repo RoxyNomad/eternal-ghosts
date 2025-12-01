@@ -12,9 +12,7 @@ export default function AdminPage() {
     <NoScrollHorizontal>
       <div className={styles.adminPage}>
         <HeaderNav active="admin" />
-        <h1>Band Members Admin</h1>
         <MemberForm />
-        <h1>Events Admin</h1>
         <EventForm />
       </div>
     </NoScrollHorizontal>

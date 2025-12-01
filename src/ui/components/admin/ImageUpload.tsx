@@ -2,6 +2,8 @@
 "use client";
 import { useState } from "react";
 
+import styles from '@/ui/styles/components/ImageUpload.module.scss'
+
 interface Props {
   onUpload: (url: string) => void;
 }
@@ -15,15 +17,15 @@ export default function ImageUpload({ onUpload }: Props) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("/api/upload-image", { method: "POST", body: formData });
+    const res = await fetch("/api/upload-image/band-members", { method: "POST", body: formData });
     const data = await res.json();
     if (data.success) onUpload(data.secure_url);
   }
 
   return (
     <div>
-      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} />
-      <button onClick={upload}>Upload Image</button>
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} /><br />
+      <button onClick={upload} className={styles.formButton}>Upload Image</button>
     </div>
   );
 }

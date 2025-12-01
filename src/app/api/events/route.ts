@@ -15,8 +15,3 @@ export async function POST(req: Request) {
   const event = await service.createEvent(body);
   return NextResponse.json(event);
 }
-
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-  await service.deleteEvent(Number(params.id));
-  return NextResponse.json({ success: true });
-}
