@@ -44,7 +44,7 @@ export function useLivePictures() {
       }),
     });
 
-    setNewLivePicture({ location: "", date: "", imageUrl: "" });
+    setNewLivePicture({ location: "", date: "", imageUrl: ""});
     fetchPictures();
   };
 

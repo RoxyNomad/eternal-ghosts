@@ -1,0 +1,18 @@
+.locationsGrid {
+	display: grid;
+	grid-template-columns: 1fr;
+
+	.locationCard {
+		padding: 1vh 1vw;
+		background-color: rgba(0, 0, 0, 0.4);
+		border-radius: 1vh;
+		box-shadow: 0 0 10px #000;
+		text-align: center;
+
+		.locationName {
+			color: whitesmoke;
+			font-size: 1rem;
+			text-decoration: none;
+		}
+	}
+}

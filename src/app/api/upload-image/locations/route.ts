@@ -1,4 +1,4 @@
-// src/app/api/upload-image/live-pictures/route.ts
+// src/app/api/upload-image/locations/route.ts
 import { NextResponse } from "next/server";
 import { cloudinary } from "@/infrastructure/cloudinary/config";
 
@@ -11,12 +11,14 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
+    // Konvertiere Datei in Buffer
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
+    // Upload zu Cloudinary
     const uploadResult = await new Promise<any>((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
-        { folder: "live-pictures" },
+        { folder: "locations" },
         (error, result) => {
           if (error) return reject(error);
           resolve(result);

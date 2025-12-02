@@ -4,9 +4,11 @@ import React from "react";
 import AnimatedLogo from "@/ui/components/logo/RollInLogo";
 import HeaderNav from "@/ui/components/layout/Header";
 import SocialIcons from "@/ui/components/layout/SocialIcons";
-import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
-import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
+import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
+import GalleryLocations from "@/ui/components/gallery/GalleryLocations";
 import Footer from "@/ui/components/layout/Footer";
+
+import styles from "@/ui/styles/pages/gallery.module.scss";
 
 export const metadata = {
   title: "Eternal Ghosts gallery",
@@ -15,26 +17,24 @@ export const metadata = {
 const Gallery: React.FC = () => {
   return (
     <NoScrollHorizontal>
-      <NoScrollVertical>
-        <div className='html'>
-          <main>
-            <HeaderNav active="gallery" />
-            <section>
-              <div className='logoContainer'>
-                <AnimatedLogo />
-              </div>
-              <div className='navPageBar'>
-                <p className='navPageTitle'>GALLERY</p>
-                <SocialIcons />
-              </div>
-            </section>
-            <section>
-              {/* Hier können später Galerie-Bilder eingefügt werden */}
-            </section>
-          </main>
-        </div>
-        <Footer />
-      </NoScrollVertical>
+      <div className="html">
+        <main>
+          <HeaderNav active="gallery" />
+          <section>
+            <div className="logoContainer">
+              <AnimatedLogo />
+            </div>
+            <div className="navPageBar">
+              <p className="navPageTitle">GALLERY</p>
+              <SocialIcons />
+            </div>
+          </section>
+          <section className={styles.locationsContainer}>
+            <GalleryLocations />
+          </section>
+        </main>
+      </div>
+      <Footer />
     </NoScrollHorizontal>
   );
 };

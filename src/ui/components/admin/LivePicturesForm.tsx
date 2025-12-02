@@ -1,6 +1,7 @@
 // src/ui/components/admin/LivePictureForm.tsx
 import ImageUpload from "@/ui/components/admin/ImageUpload";
 import { useLivePictures } from "@/hooks/useLivePictures";
+import LocationForm from '@/ui/components/admin/LocationForm'
 import styles from '@/ui/styles/components/LivePictureForm.module.scss'
 
 export default function LivePictureForm() {
@@ -34,19 +35,7 @@ export default function LivePictureForm() {
       </div>
 
       <div className={styles.pictureGallery}>
-        {pictures.map((p) => (
-          <div key={p.id} className={styles.pictureCard}>
-            <img src={p.imageUrl} alt={`Picture ${p.id}`} />
-            <p>{p.location}</p>
-            <p>{new Date(p.date).toLocaleDateString()}</p>
-            <button
-              onClick={() => handleDelete(p.id)}
-              className={styles.formButton}
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+        <LocationForm />
       </div>
     </div>
   )
