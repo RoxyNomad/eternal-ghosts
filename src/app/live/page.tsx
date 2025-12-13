@@ -29,9 +29,6 @@ const LivePage: React.FC = () => {
                 <SocialIcons />
               </div>
             </section>
-            <section>
-              <EventList />
-            </section>
           </main>
         </div>
         <Footer />

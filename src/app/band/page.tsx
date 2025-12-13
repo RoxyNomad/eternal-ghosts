@@ -36,8 +36,6 @@ export default function BandPage() {
                 leftLink={{ label: "MEMBERS", href: "/band" }}
                 rightLink={{ label: "BIOGRAPHY", href: "/biography" }}
               />
-            </section>
-            <section>
               <AnimatedBandMembers />
             </section>
           </main>

@@ -28,9 +28,6 @@ const LinksPage: React.FC = () => {
                 <SocialIcons />
               </div>
             </section>
-            <section>
-              {/* Hier später weitere Links oder Inhalte */}
-            </section>
           </main>
         </div>
         <Footer />

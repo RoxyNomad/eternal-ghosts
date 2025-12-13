@@ -28,9 +28,6 @@ const MediaPage = () => {
                 <SocialIcons />
               </div>
             </section>
-            <section>
-              {/* Hier später Medien-Inhalte */}
-            </section>
           </main>
         </div>
         <Footer />

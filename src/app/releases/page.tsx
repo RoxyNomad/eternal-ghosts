@@ -26,10 +26,6 @@ export default function Releases() {
                 <SocialIcons />
               </div>
             </section>
-
-            <section>
-              {/* Optionaler Content */}
-            </section>
           </main>
         </div>
         <Footer />

@@ -27,8 +27,6 @@ export default function ContactPage() {
                 <p className='navPageTitle'>CONTACT</p>
                 <SocialIcons />
               </div>
-            </section>
-            <section>
               <ContactForm />
             </section>
           </main>

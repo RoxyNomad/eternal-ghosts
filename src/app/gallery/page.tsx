@@ -28,9 +28,9 @@ const Gallery: React.FC = () => {
               <p className="navPageTitle">GALLERY</p>
               <SocialIcons />
             </div>
-          </section>
-          <section className={styles.locationsContainer}>
-            <GalleryLocations />
+            <div className={styles.locationsContainer}>
+              <GalleryLocations />
+            </div>
           </section>
         </main>
       </div>

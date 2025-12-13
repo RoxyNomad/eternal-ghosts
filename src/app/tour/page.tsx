@@ -19,7 +19,6 @@ const Tour: React.FC = () => {
         <div className='html'>
           <main>
             <HeaderNav active='tour'/>
-
             <section>
               <div className='logoContainer'>
                 <AnimatedLogo />
@@ -28,10 +27,6 @@ const Tour: React.FC = () => {
                 <p className='navPageTitle'>TOUR</p>
                 <SocialIcons />
               </div>
-            </section>
-
-            <section>
-              {/* Hier später Tour-Termine oder Inhalte */}
             </section>
           </main>
         </div>

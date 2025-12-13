@@ -1,8 +1,6 @@
 .footerContainer {
-	position:absolute;
-	bottom:2vh;
-	left: 50%;
-	transform: translateX(-50%);
+	display: flex;
+	justify-content: center;
 	text-align: center;
 
 	.footerContent {

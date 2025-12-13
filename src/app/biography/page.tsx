@@ -30,8 +30,6 @@ export default function BiographyPage() {
                 leftLink={{ label: "MEMBERS", href: "/band" }}
                 rightLink={{ label: "BIOGRAPHY", href: "/biography" }}
               />
-            </section>
-            <section>
               <div className={styles.biography}>
                 <p>
                   Eternal Ghosts is a Metal-Band that was founded in 2022. We stand
