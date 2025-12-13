@@ -5,7 +5,7 @@ import HeaderNav from "@/ui/components/layout/Header";
 import GalleryGrid from "@/ui/components/gallery/GalleryGrid";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
 
-import styles from "@/ui/styles/pages/gallery.module.scss";
+import styles from "@/ui/styles/pages/gallery[location].module.scss";
 
 interface Props {
   params: {

@@ -1,16 +1,27 @@
 .locationsGrid {
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
+	justify-items: center;
+	row-gap: 3vh;
 
 	.locationCard {
+		width: 7vw;
 		padding: 1vh 1vw;
 		background-color: rgba(0, 0, 0, 0.4);
 		border-radius: 1vh;
 		box-shadow: 0 0 10px #000;
 		text-align: center;
 
-		.locationName {
+		.imageWrapper {
+			position: relative;
+			width: 7vw;
+			aspect-ratio: 1 / 1;
+			overflow: hidden;
+		}
+
+		.info {
 			color: whitesmoke;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
 			font-size: 1rem;
 			text-decoration: none;
 		}
