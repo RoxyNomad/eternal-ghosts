@@ -28,6 +28,7 @@ const LivePage: React.FC = () => {
                 <p className='navPageTitle'>LIVE</p>
                 <SocialIcons />
               </div>
+              <EventList />
             </section>
           </main>
         </div>

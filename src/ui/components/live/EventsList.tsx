@@ -35,7 +35,7 @@ export default function EventsList() {
 
   return (
     <div className={styles.eventsContainer}>
-      <section className={styles.upcomingEvents}>
+      <div className={styles.upcomingEvents}>
         <h2 className={styles.containerTitle}>Upcoming Events</h2>
         {upcoming.length ? (
           upcoming.map(e => (
@@ -49,9 +49,9 @@ export default function EventsList() {
         ) : (
           <p>No upcoming events</p>
         )}
-      </section>
+      </div>
 
-      <section className={styles.pastEvents}>
+      <div className={styles.pastEvents}>
         <h2 className={styles.containerTitle}>Past Events</h2>
         {past.length ? (
           past.map(e => (
@@ -65,7 +65,7 @@ export default function EventsList() {
         ) : (
           <p>No past events</p>
         )}
-      </section>
+      </div>
     </div>
   );
 }
