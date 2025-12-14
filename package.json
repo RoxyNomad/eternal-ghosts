@@ -11,24 +11,17 @@
     "migrate:down": "node-pg-migrate down"
   },
   "dependencies": {
-    "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.74.1",
-    "axios": "^1.7.9",
     "cloudinary": "^2.8.0",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.4.1",
-    "gsap": "^3.12.7",
     "next": "15.1.6",
-    "next-sanity": "^9.8.55",
     "node-pg-migrate": "^8.0.3",
     "nodemailer": "^6.10.0",
     "pg": "^8.16.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sanity": "^3.74.1",
-    "sass": "^1.94.2",
-    "styled-components": "^6.1.15"
+    "sass": "^1.94.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
