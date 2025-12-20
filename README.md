@@ -88,7 +88,7 @@ pnpm install
 
 ## ▶️ Usage
 
-node-pg-migrate to generate the tables on your database
+npx node-pg-migrate up to generate the tables on your database
 
 To run the development server:
 
