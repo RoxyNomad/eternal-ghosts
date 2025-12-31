@@ -1,4 +1,4 @@
-// src/components/AnimatedPictureAndLogo.tsx
+// src/ui/components/news/AnimatedPictureAndLogo.tsx
 "use client";
 
 import { motion } from "framer-motion";

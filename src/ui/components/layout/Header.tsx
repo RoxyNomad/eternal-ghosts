@@ -6,7 +6,7 @@ import clsx from "clsx";
 import styles from "@/ui/styles/components/Header.module.scss";
 
 export default function HeaderNav({ active }: { active?: string }) {
-  const links = ["news", "band", "live", "gallery", "tour", "releases", "media", "links", "contact"];
+  const links = ["news", "band", "live", "gallery", "releases", "media", "contact"];
 
   return (
     <header className={styles.header}>

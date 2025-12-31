@@ -5,6 +5,7 @@ import EventForm from "@/ui/components/admin/EventForm";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
 import MemberForm from "@/ui/components/admin/MemberForm";
 import LivePictureForm from "@/ui/components/admin/LivePicturesForm";
+import NewsForm from "@/ui/components/admin/NewsForm";
 
 import styles from "@/ui/styles/pages/admin.module.scss";
 
@@ -16,6 +17,7 @@ export default function AdminPage() {
         <MemberForm />
         <EventForm />
         <LivePictureForm />
+        <NewsForm />
       </div>
     </NoScrollHorizontal>
   );

@@ -11,10 +11,8 @@ All news and media like: pictures, songs and videos are bundeled on this page.
 -biography (with members and biography button and band biography, buttons are linked with pages)
 -live (eventlist with upcoming and past shows)
 -gallery (Locations are like folders with pictures on a seperated page)
--tour (with upcoming and past tour dates)
 -releases (with infos about new releases from tracks or albums)
 -media (new musicvideos or livevideos)
--links (links to other bands or company they supported the band)
 -contact (conactform with submit button included an mailto function)
 
 -terms (all terms as service is linked in the footer)
@@ -46,10 +44,6 @@ All news and media like: pictures, songs and videos are bundeled on this page.
 						- SocialIcons, show the icons in the bar and have the links implemented
 						- GalleryLocations, render the fetched locations from the database and generate cards the are linked to a sperated page, where are show the fetched pictures, who are saved to the same location
 						- GalleryGrid, is on the separated page and show the fetched pictures, from the chosen location
--tour
-						- TourDates (coming in future), is rendered after the bar and show the fetched tour dates
-						- RollInLogo, rendering the fetched rolled in logo after the header
-						- SocialIcons, show the icons in the bar and have the links implemented
 -releases
 						- RollInLogo, rendering the fetched rolled in logo after the header
 						- SocialIcons, show the icons in the bar and have the links implemented
@@ -57,11 +51,7 @@ All news and media like: pictures, songs and videos are bundeled on this page.
 -media
 						- ZoomOutLogo, rendering the fetched outgoing logo after the header
 						- SocialIcons, show the icons in the bar and have the links implemented
-						- Media (coming in future), render the fetched videolinks after the bar on page
--links
-						- RollInLogo, rendering the fetched rolled in logo after the header
-						- SocialIcons, show the icons in the bar and have the links implemented
-						- Links (coming in future), render the fetched links from other bands or companies after the bar on page						
+						- Media (coming in future), render the fetched videolinks after the bar on page				
 -contact
 						- RollInLogo, rendering the fetched rolled in logo after the header
 						- SocialIcons, show the icons in the bar and have the links implemented
