@@ -1,4 +1,4 @@
-// src/ui/components/live/EventsList.tsx
+// src/ui/components/events/EventsList.tsx
 "use client";
 
 import React, { useEffect, useState } from "react";

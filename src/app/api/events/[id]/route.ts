@@ -1,17 +1,11 @@
 // src/app/api/events/[id]/route.ts
 import { NextResponse } from "next/server";
-import { DbEventRepository } from "@/infrastructure/repositories/DbEventRepository";
-import { EventService } from "@/infrastructure/services/EventService";
-
-const service = new EventService(new DbEventRepository());
+import { deleteEvent } from "@/modules/events/service";
 
 export async function DELETE(
-  req: Request,
-  context: { params: Promise<{ id: string }> }
+    _: Request,
+    { params }: { params: { id: string } }
 ) {
-  const { id } = await context.params; // 🔥 Muss awaited werden
-
-  await service.deleteEvent(Number(id));
-
+  await deleteEvent(Number(params.id));
   return NextResponse.json({ success: true });
 }

@@ -1,6 +1,6 @@
 // src/ui/components/admin/EventForm.tsx
 "use client";
-import { useEvents } from "@/hooks/useEvents";
+import { useEvents } from "@/modules/events/ui/useEvents";
 
 import styles from '@/ui/styles/components/EventForm.module.scss'
 

@@ -5,7 +5,7 @@ import AnimatedLogo from "@/ui/components/logo/RollInLogo";
 import HeaderNav from "@/ui/components/layout/Header";
 import SocialIcons from "@/ui/components/layout/SocialIcons";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
-import GalleryLocations from "@/ui/components/gallery/GalleryLocations";
+import GalleryLocations from "@/modules/gallery/ui/components/GalleryLocations";
 import Footer from "@/ui/components/layout/Footer";
 
 import styles from "@/ui/styles/pages/gallery.module.scss";

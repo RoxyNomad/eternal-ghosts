@@ -2,7 +2,7 @@
 import { LivePictureRepository } from "@/domain/repositories/LivePictureRepository";
 import { LivePicture } from "@/domain/entities/PictureEntity";
 
-export class LivePictureService {
+export class PictureService {
 	constructor(private repo: LivePictureRepository) {}
 
 	async getAllLivePictures(): Promise<LivePicture[]> {

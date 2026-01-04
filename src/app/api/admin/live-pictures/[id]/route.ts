@@ -1,9 +1,9 @@
-// src/app/upload-image/live-pictures/route.ts
+// src/app/upload-image/events-pictures/route.ts
 import { NextResponse } from "next/server";
-import { DbLivePictureRepository } from "@/infrastructure/repositories/DbLivePictureRepository";
-import { LivePictureService } from "@/infrastructure/services/LivePictureService";
+import { DbPictureRepository } from "@/modules/gallery/infrastructure/DbPictureRepository";
+import { PictureService } from "@/modules/gallery/infrastructure/PictureService";
 
-const service = new LivePictureService(new DbLivePictureRepository());
+const service = new PictureService(new DbPictureRepository());
 
 export async function DELETE(
 	req: Request,

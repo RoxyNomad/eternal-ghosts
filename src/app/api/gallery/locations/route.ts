@@ -1,6 +1,6 @@
 // src/app/api/gallery/locations/route.ts
 import { NextResponse } from "next/server";
-import { DbLocationRepository } from "@/infrastructure/repositories/DbLocationRepository";
+import { DbLocationRepository } from "@/modules/gallery/infrastructure/DbLocationRepository";
 
 export async function GET() {
   try {

@@ -1,6 +1,6 @@
 // src/app/api/upload-image/locations/route.ts
 import { NextResponse } from "next/server";
-import { cloudinary } from "@/infrastructure/cloudinary/config";
+import { cloudinary } from "@/modules/gallery/infrastructure/cloudinary/config";
 
 export async function POST(req: Request) {
   try {

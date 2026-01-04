@@ -1,4 +1,4 @@
-// migrations/1766222222187_create-live-pictures.js
+// migrations/1766222222187_create-events-pictures.js
 exports.up = pgm => {
     pgm.createTable("live_pictures", {
         id: {

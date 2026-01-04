@@ -1,6 +1,6 @@
-// src/app/api/upload-image/live-pictures/route.ts
+// src/app/api/upload-image/events-pictures/route.ts
 import { NextResponse } from "next/server";
-import { cloudinary } from "@/infrastructure/cloudinary/config";
+import { cloudinary } from "@/modules/gallery/infrastructure/cloudinary/config";
 
 export async function POST(req: Request) {
   try {
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     const uploadResult = await new Promise<any>((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
-        { folder: "live-pictures" },
+        { folder: "events-pictures" },
         (error, result) => {
           if (error) return reject(error);
           resolve(result);

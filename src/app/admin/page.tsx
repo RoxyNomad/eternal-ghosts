@@ -4,7 +4,7 @@ import HeaderNav from "@/ui/components/layout/Header";
 import EventForm from "@/ui/components/admin/EventForm";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
 import MemberForm from "@/ui/components/admin/MemberForm";
-import LivePictureForm from "@/ui/components/admin/LivePicturesForm";
+import LivePictureForm from "@/modules/gallery/ui/components/admin/LivePictureForm";
 import NewsForm from "@/ui/components/admin/NewsForm";
 
 import styles from "@/ui/styles/pages/admin.module.scss";

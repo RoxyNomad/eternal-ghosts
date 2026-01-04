@@ -1,4 +1,4 @@
-// src/infrastructure/repositories/DbLivePictureRepository.ts
+// src/infrastructure/repositories/DbPictureRepository.ts
 import { LivePictureRepository } from "@/domain/repositories/LivePictureRepository";
 import { LivePicture } from "@/domain/entities/PictureEntity";
 import { query } from "@/utils/db";
@@ -7,7 +7,7 @@ import { query } from "@/utils/db";
  * PostgreSQL implementation of LivePictureRepository using node-pg.
  * This repository keeps your existing upload logic intact.
  */
-export class DbLivePictureRepository implements LivePictureRepository {
+export class DbPictureRepository implements LivePictureRepository {
   async getAll(): Promise<LivePicture[]> {
     const res = await query(`SELECT id, date, location, image_url FROM live_pictures ORDER BY id ASC`);
     return res.rows.map((r: any) => ({

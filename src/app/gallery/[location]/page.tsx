@@ -2,7 +2,7 @@
 "use client";
 import Link from "next/link";
 import HeaderNav from "@/ui/components/layout/Header";
-import GalleryGrid from "@/ui/components/gallery/GalleryGrid";
+import GalleryGrid from "@/modules/gallery/ui/components/GalleryGrid";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
 
 import styles from "@/ui/styles/pages/gallery[location].module.scss";

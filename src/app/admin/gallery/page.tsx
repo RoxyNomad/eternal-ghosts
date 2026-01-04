@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useAdminLocations } from "@/hooks/useAdminLocations";
+import { useAdminLocations } from "@/modules/gallery/ui/hooks/useAdminLocations";
 import styles from "@/ui/styles/pages/adminGallery.module.scss";
 
 export default function AdminGalleryPage() {

@@ -2,7 +2,7 @@
 "use client";
 
 import { useAdminNews } from "@/hooks/useAdminNews";
-import ImageUpload from "@/ui/components/admin/ImageUpload";
+import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
 
 import styles from "@/ui/styles/components/NewsForm.module.scss";
 

@@ -1,5 +1,5 @@
 // src/ui/components/admin/MemberForm.tsx
-import ImageUpload from "@/ui/components/admin/ImageUpload";
+import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
 
 import { useMembers } from "@/hooks/useMembers";
 

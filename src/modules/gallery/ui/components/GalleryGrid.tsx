@@ -1,6 +1,6 @@
 // src/ui/components/gallery/GalleryGrid.tsx
 "use client";
-import { usePicturesByLocation } from "@/hooks/usePicturesByLocation";
+import { usePicturesByLocation } from "@/modules/gallery/ui/hooks/usePicturesByLocation";
 import styles from "@/ui/styles/components/GalleryGrid.module.scss";
 
 interface Props {

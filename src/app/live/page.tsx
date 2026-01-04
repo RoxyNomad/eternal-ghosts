@@ -1,4 +1,4 @@
-// src/app/live/page.tsx
+// src/app/events/page.tsx
 import React from "react";
 
 import AnimatedLogo from "@/ui/components/logo/ZoomInLogo";
@@ -10,7 +10,7 @@ import Footer from "@/ui/components/layout/Footer";
 import EventList from '@/ui/components/live/EventsList'
 
 export const metadata = {
-  title: "Eternal Ghosts live",
+  title: "Eternal Ghosts events",
 };
 
 const LivePage: React.FC = () => {

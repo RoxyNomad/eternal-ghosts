@@ -1,7 +1,7 @@
 // src/ui/components/admin/LocationForm.tsx
 "use client";
-import ImageUpload from "@/ui/components/admin/ImageUpload";
-import { useAdminLocations } from "@/hooks/useAdminLocations";
+import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
+import { useAdminLocations } from "@/modules/gallery/ui/hooks/useAdminLocations";
 import styles from "@/ui/styles/components/LocationForm.module.scss";
 
 export default function LocationForm() {

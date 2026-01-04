@@ -3,13 +3,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useGalleryLocations } from "@/hooks/useGalleryLocations";
+import { useGalleryLocations } from "@/modules/gallery/ui/hooks/useGalleryLocations";
 import styles from "@/ui/styles/components/GalleryLocations.module.scss";
 
-/**
- * Shows all locations with title image and picture count.
- * Clicking a location navigates to /gallery/{locationName}
- */
 export default function GalleryLocations() {
   const { locations, loading, error } = useGalleryLocations();
 

@@ -1,7 +1,7 @@
 // src/ui/components/admin/LivePictureForm.tsx
-import ImageUpload from "@/ui/components/admin/ImageUpload";
-import { useLivePictures } from "@/hooks/useLivePictures";
-import LocationForm from '@/ui/components/admin/LocationForm'
+import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
+import { useLivePictures } from "@/modules/gallery/ui/hooks/useLivePictures";
+import LocationForm from '@/modules/gallery/ui/components/admin/LocationForm'
 import styles from '@/ui/styles/components/LivePictureForm.module.scss'
 
 export default function LivePictureForm() {
@@ -19,7 +19,6 @@ export default function LivePictureForm() {
           onChange={handleChange}
         /><br />
 
-        {/* ✔️ Hier kommt das Datum hinein */}
         <input
           type="date"
           name="date"

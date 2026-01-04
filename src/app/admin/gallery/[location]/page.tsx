@@ -1,5 +1,5 @@
 "use client";
-import { usePicturesByLocation } from "@/hooks/usePicturesByLocation";
+import { usePicturesByLocation } from "@/modules/gallery/ui/hooks/usePicturesByLocation";
 import { useParams } from "next/navigation";
 import styles from "@/ui/styles/pages/adminGallery.module.scss";
 

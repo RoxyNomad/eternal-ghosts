@@ -1,17 +1,15 @@
 // src/app/api/events/route.ts
 import { NextResponse } from "next/server";
-import { DbEventRepository } from "@/infrastructure/repositories/DbEventRepository";
-import { EventService } from "@/infrastructure/services/EventService";
-
-const service = new EventService(new DbEventRepository());
+import { getAllEvents } from "@/modules/events/queries";
+import { createEvent } from "@/modules/events/service";
 
 export async function GET() {
-  const events = await service.getAllEvents();
+  const events = await getAllEvents();
   return NextResponse.json(events);
 }
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const event = await service.createEvent(body);
+  const event = await createEvent(body);
   return NextResponse.json(event);
 }
