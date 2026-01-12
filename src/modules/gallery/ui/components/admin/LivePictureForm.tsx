@@ -1,41 +1,68 @@
-// src/ui/components/admin/LivePictureForm.tsx
 import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
 import { useLivePictures } from "@/modules/gallery/ui/hooks/useLivePictures";
-import LocationForm from '@/modules/gallery/ui/components/admin/LocationForm'
-import styles from '@/ui/styles/components/LivePictureForm.module.scss'
+import { useAdminLocations } from "@/modules/gallery/ui/hooks/useAdminLocations";
+import LocationForm from "@/modules/gallery/ui/components/admin/LocationForm";
+import styles from "@/ui/styles/components/LivePictureForm.module.scss";
 
 export default function LivePictureForm() {
-  const { pictures, newLivePicture, handleChange, handleCreate, handleDelete, setUploadedImage } = useLivePictures();
+    const {
+        newLivePicture,
+        setNewLivePicture,
+        handleChange,
+        handleCreate,
+        setUploadedImage,
+    } = useLivePictures();
 
-  return(
-    <div className={styles.pictureContainer}>
-      <div className={styles.newPictureForm}>
-        <h1 className={styles.formTitle}>Live Pictures</h1>
+    const { locations, loading } = useAdminLocations();
 
-        <input
-          name='location'
-          placeholder='Location'
-          value={newLivePicture.location}
-          onChange={handleChange}
-        /><br />
+    return (
+        <div className={styles.pictureContainer}>
+            <div className={styles.newPictureForm}>
+                <h1 className={styles.formTitle}>Live Pictures</h1>
 
-        <input
-          type="date"
-          name="date"
-          value={newLivePicture.date}
-          onChange={handleChange}
-        /><br />
+                <select
+                    value={newLivePicture.locationId}
+                    onChange={(e) =>
+                        setNewLivePicture({
+                            ...newLivePicture,
+                            locationId: Number(e.target.value),
+                        })
+                    }
+                    disabled={loading}
+                >
+                    <option value="">Select location</option>
+                    {locations.map((loc) => (
+                        <option key={loc.id} value={loc.id}>
+                            {loc.name}
+                        </option>
+                    ))}
+                </select>
 
-        <ImageUpload onUpload={setUploadedImage} folder="live-pictures" />
+                <br />
 
-        <button onClick={handleCreate} className={styles.formButton}>
-          Add Picture
-        </button>
-      </div>
+                <input
+                    type="date"
+                    name="date"
+                    value={newLivePicture.date}
+                    onChange={handleChange}
+                />
 
-      <div className={styles.pictureGallery}>
-        <LocationForm />
-      </div>
-    </div>
-  )
+                <br />
+
+                <ImageUpload onUpload={setUploadedImage} folder="live-pictures" />
+
+                <button
+                    onClick={handleCreate}
+                    className={styles.formButton}
+                    disabled={!newLivePicture.locationId || !newLivePicture.date}
+                >
+                    Add Picture
+                </button>
+            </div>
+
+            <div className={styles.pictureGallery}>
+                <LocationForm />
+            </div>
+        </div>
+    );
 }

@@ -7,7 +7,7 @@ import SocialIcons from "@/ui/components/layout/SocialIcons";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
 import Footer from "@/ui/components/layout/Footer";
-import EventList from '@/ui/components/live/EventsList'
+import EventList from '@/modules/events/ui/components/EventsList'
 
 export const metadata = {
   title: "Eternal Ghosts events",

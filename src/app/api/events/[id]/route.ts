@@ -1,6 +1,6 @@
 // src/app/api/events/[id]/route.ts
 import { NextResponse } from "next/server";
-import { deleteEvent } from "@/modules/events/service";
+import { deleteEvent } from "@/modules/events/commands";
 
 export async function DELETE(
     _: Request,

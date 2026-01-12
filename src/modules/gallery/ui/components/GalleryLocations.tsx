@@ -1,4 +1,4 @@
-// src/ui/components/gallery/GalleryLocations.tsx
+// src/modules/gallery/ui/components/GalleryLocations.tsx
 "use client";
 
 import Link from "next/link";
@@ -18,7 +18,7 @@ export default function GalleryLocations() {
       {locations.map((loc) => (
         <Link
           key={loc.id}
-          href={`/gallery/${encodeURIComponent(loc.name)}`}
+          href={`/gallery/${loc.id}`}
           className={styles.locationCard}
         >
           <div className={styles.imageWrapper}>

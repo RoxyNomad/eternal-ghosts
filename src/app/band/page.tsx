@@ -1,7 +1,7 @@
-// app/band/page.tsx
+// app/band-members/page.tsx
 import Image from "next/image";
 
-import AnimatedBandMembers from "@/ui/components/band/AminatedBandMembers";
+import AnimatedBandMembers from "@/modules/band-members/ui/components/AminatedBandMembers";
 import HeaderNav from "@/ui/components/layout/Header";
 import PageBar from "@/ui/components/layout/PageBarBand";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"

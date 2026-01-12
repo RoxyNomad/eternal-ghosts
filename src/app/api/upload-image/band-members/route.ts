@@ -1,4 +1,4 @@
-// src/app/api/upload-image/band-members/route.ts
+// src/app/api/upload-image/band-members-members/route.ts
 import { NextResponse } from "next/server";
 import { cloudinary } from "@/modules/gallery/infrastructure/cloudinary/config";
 
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     const uploadResult = await new Promise<any>((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
-        { folder: "band-members" },
+        { folder: "band-members-members" },
         (error, result) => {
           if (error) return reject(error);
           resolve(result);

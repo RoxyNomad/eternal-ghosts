@@ -1,7 +1,7 @@
-// src/hooks/useAdminLocations.ts
+// src/modules/gallery/ui/hooks/useAdminLocations.ts
 "use client";
 import { useState, useEffect } from "react";
-import { LocationEntity } from "@/domain/entities/LocationEntity";
+import { LocationEntity } from "../../domain/location.entity";
 
 export interface AdminLocation extends LocationEntity {
   pictureCount?: number;

@@ -3,9 +3,8 @@ exports.up = pgm => {
   pgm.createTable("events", {
     id: "id",
     title: { type: "text", notNull: true },
-    date: { type: "timestamptz", notNull: true },
-    location: { type: "text" },
-    description: { type: "text" }
+    date: { type: "timestamp", notNull: true },
+    location: { type: "text" }
   });
 };
 

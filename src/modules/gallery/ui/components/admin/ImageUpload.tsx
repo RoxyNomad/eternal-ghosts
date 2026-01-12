@@ -1,4 +1,4 @@
-// src/ui/components/admin/ImageUpload.tsx
+// src/modules/gallery/ui/components/admin/ImageUpload.tsx
 "use client";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
 // src/app/api/admin/locations/route.ts
 import { NextResponse } from "next/server";
-import { DbLocationRepository } from "@/modules/gallery/infrastructure/DbLocationRepository";
+import { DbLocationRepository } from "@/modules/gallery/infrastructure/db-location.repository";
 
 const repo = new DbLocationRepository();
 

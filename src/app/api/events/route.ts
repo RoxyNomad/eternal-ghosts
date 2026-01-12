@@ -1,7 +1,7 @@
 // src/app/api/events/route.ts
 import { NextResponse } from "next/server";
 import { getAllEvents } from "@/modules/events/queries";
-import { createEvent } from "@/modules/events/service";
+import { createEvent } from "@/modules/events/commands";
 
 export async function GET() {
   const events = await getAllEvents();

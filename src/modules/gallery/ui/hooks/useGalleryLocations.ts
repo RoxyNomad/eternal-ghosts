@@ -1,4 +1,4 @@
-// src/hooks/useGalleryLocations.ts
+// src/modules/gallery/ui/hooks/useGalleryLocations.ts
 "use client";
 import { useEffect, useState } from "react";
 

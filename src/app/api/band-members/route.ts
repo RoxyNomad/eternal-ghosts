@@ -1,7 +1,7 @@
-// src/app/api/band-members/route.ts
+// src/app/api/band-members-members/route.ts
 import { NextResponse } from "next/server";
-import { DbBandMemberRepository } from "@/infrastructure/repositories/DbBandMemberRepository";
-import { GetBandMembersHandler } from "@/application/handlers/GetBandMembersHandler";
+import { DbBandMemberRepository } from "@/modules/band-members/infrastructure/db-band-member.repository";
+import { GetBandMembersHandler } from "@/modules/band-members/application/handlers/get-band-members.handler";
 
 export async function GET() {
   const repository = new DbBandMemberRepository();

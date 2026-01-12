@@ -1,14 +1,14 @@
 // src/app/api/gallery/locations/route.ts
 import { NextResponse } from "next/server";
-import { DbLocationRepository } from "@/modules/gallery/infrastructure/DbLocationRepository";
+import { DbLocationRepository } from "@/modules/gallery/infrastructure/db-location.repository";
+import { GetAllLocationsHandler } from "@/modules/gallery/application/handlers/get-all-locations.handler";
+import { GetAllLocationsQuery } from "@/modules/gallery/application/queries/get-all-locations.query";
 
 export async function GET() {
-  try {
-    const repo = new DbLocationRepository();
-    const locations = await repo.getAll();
-    return NextResponse.json(locations);
-  } catch (err) {
-    console.error("GET /api/gallery/locations error:", err);
-    return NextResponse.json({ error: "Failed to load locations" }, { status: 500 });
-  }
+  const repo = new DbLocationRepository();
+  const handler = new GetAllLocationsHandler(repo);
+
+  return NextResponse.json(
+      await handler.execute(new GetAllLocationsQuery())
+  );
 }

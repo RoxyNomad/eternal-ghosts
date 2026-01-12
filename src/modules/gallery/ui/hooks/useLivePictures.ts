@@ -1,20 +1,20 @@
-// src/hooks/useLivePictures.ts
+// src/modules/gallery/ui/hooks/useLivePictures.ts
 "use client";
 import { useState, useEffect } from "react";
-import { LivePicture } from "@/domain/entities/PictureEntity";
+import { PictureEntity } from "../../domain/picture.entity";
 
 export interface NewLivePicture {
-  location: string;
   date: string;
   imageUrl: string;
+  locationId: number | "";
 }
 
 export function useLivePictures() {
-  const [pictures, setPictures] = useState<LivePicture[]>([]);
-  const [newLivePicture, setNewLivePicture] = useState({
-    location: "",
+  const [pictures, setPictures] = useState<PictureEntity[]>([]);
+  const [newLivePicture, setNewLivePicture] = useState<NewLivePicture>({
     date: "",
-    imageUrl: ""
+    imageUrl: "",
+    locationId: "",
   });
 
   const fetchPictures = async () => {
@@ -44,7 +44,7 @@ export function useLivePictures() {
       }),
     });
 
-    setNewLivePicture({ location: "", date: "", imageUrl: ""});
+    setNewLivePicture({ locationId: "", date: "", imageUrl: ""});
     fetchPictures();
   };
 
@@ -60,6 +60,7 @@ export function useLivePictures() {
   return {
     pictures,
     newLivePicture,
+    setNewLivePicture,
     handleChange,
     handleCreate,
     handleDelete,

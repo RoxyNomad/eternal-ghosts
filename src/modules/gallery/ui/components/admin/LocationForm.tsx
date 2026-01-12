@@ -1,4 +1,4 @@
-// src/ui/components/admin/LocationForm.tsx
+// src/modules/gallery/ui/components/admin/LocationForm.tsx
 "use client";
 import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
 import { useAdminLocations } from "@/modules/gallery/ui/hooks/useAdminLocations";
@@ -13,7 +13,7 @@ export default function LocationForm() {
 
       <input
         name="name"
-        placeholder="Location Name"
+        placeholder="LocationEntity Name"
         value={newLocation.name}
         onChange={handleChange}
       /><br />
@@ -21,7 +21,7 @@ export default function LocationForm() {
       <ImageUpload onUpload={setUploadedImage} folder="locations" />
 
       <button onClick={handleCreate} className={styles.formButton}>
-        Add Location
+        Add LocationEntity
       </button>
     </div>
   );

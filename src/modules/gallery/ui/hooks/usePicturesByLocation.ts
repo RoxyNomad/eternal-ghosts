@@ -1,28 +1,31 @@
-// src/hooks/usePicturesByLocation.ts
+// src/modules/gallery/ui/hooks/usePicturesByLocation.ts
 "use client";
+
 import { useEffect, useState } from "react";
 
 export interface Picture {
   id: number;
   date: string;
-  location: string;
   imageUrl: string;
+  locationId: number;
+  locationName?: string;
 }
 
-export function usePicturesByLocation(location: string) {
+export function usePicturesByLocation(locationId: number) {
   const [pictures, setPictures] = useState<Picture[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!location) return;
+    if (!locationId) return;
 
     const fetchPictures = async () => {
       try {
         setLoading(true);
-        const encoded = encodeURIComponent(location);
-        const res = await fetch(`/api/gallery/${encoded}`);
+
+        const res = await fetch(`/api/gallery/${locationId}`);
         if (!res.ok) throw new Error("Failed to fetch pictures");
+
         const data: Picture[] = await res.json();
         setPictures(data);
       } catch (err: any) {
@@ -33,7 +36,7 @@ export function usePicturesByLocation(location: string) {
     };
 
     fetchPictures();
-  }, [location]);
+  }, [locationId]);
 
   return { pictures, loading, error };
 }

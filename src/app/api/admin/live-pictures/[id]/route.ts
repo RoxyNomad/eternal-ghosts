@@ -1,17 +1,28 @@
-// src/app/upload-image/events-pictures/route.ts
+// src/app/api/admin/gallery/pictures/[id]/route.ts
 import { NextResponse } from "next/server";
-import { DbPictureRepository } from "@/modules/gallery/infrastructure/DbPictureRepository";
-import { PictureService } from "@/modules/gallery/infrastructure/PictureService";
+import { DbPictureRepository } from "@/modules/gallery/infrastructure/db-picture.repository";
+import { DeletePictureHandler } from "@/modules/gallery/application/handlers/delete-picture.handler";
+import { DeletePictureCommand } from "@/modules/gallery/application/commands/delete-picture.command";
 
-const service = new PictureService(new DbPictureRepository());
+export async function GET(
+	_: Request,
+	{ params }: { params: { id: string } }
+) {
+	const repo = new DbPictureRepository();
+	return NextResponse.json(
+		await repo.getByLocationId(Number(params.id))
+	);
+}
+
 
 export async function DELETE(
 	req: Request,
-	context: { params: Promise<{ id: string }> }
+	{ params }: { params: { id: string } }
 ) {
-	const { id } = await context.params; // 🔥 Muss awaited werden
+	const repo = new DbPictureRepository();
+	const handler = new DeletePictureHandler(repo);
 
-	await service.deleteLivePicture(Number(id));
+	await handler.execute(new DeletePictureCommand(Number(params.id)));
 
 	return NextResponse.json({ success: true });
 }
