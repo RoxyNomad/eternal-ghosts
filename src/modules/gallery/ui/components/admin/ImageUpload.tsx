@@ -5,11 +5,11 @@ import { useState } from "react";
 import styles from '@/ui/styles/components/ImageUpload.module.scss'
 
 interface Props {
-  onUpload: (url: string) => void;
+  onUploadAction: (url: string) => void;
   folder?: string;
 }
 
-export default function ImageUpload({ onUpload, folder = "band-members" }: Props) {
+export default function ImageUpload({ onUploadAction, folder = "band-members" }: Props) {
   const [file, setFile] = useState<File | null>(null);
 
   async function upload() {
@@ -20,7 +20,7 @@ export default function ImageUpload({ onUpload, folder = "band-members" }: Props
 
     const res = await fetch(`/api/upload-image/${folder}`, { method: "POST", body: formData });
     const data = await res.json();
-    if (data.success) onUpload(data.secure_url);
+    if (data.success) onUploadAction(data.secure_url);
   }
 
   return (

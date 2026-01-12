@@ -26,19 +26,13 @@ export class DbPictureRepository implements PictureRepository {
     }));
   }
 
-async getByLocationId(locationId: number): Promise<PictureEntity[]> {
+  async getByLocationId(locationId: number) {
     const res = await query(
         `
-          SELECT
-            p.id,
-            p.date,
-            p.image_url,
-            p.location_id,
-            l.name AS location_name
-          FROM live_pictures p
-                 JOIN locations l ON l.id = p.location_id
-          WHERE p.location_id = $1
-          ORDER BY p.date DESC
+          SELECT id, date, image_url, location_id
+          FROM live_pictures
+          WHERE location_id = $1
+          ORDER BY date DESC
         `,
         [locationId]
     );
@@ -48,9 +42,9 @@ async getByLocationId(locationId: number): Promise<PictureEntity[]> {
       date: r.date,
       imageUrl: r.image_url,
       locationId: r.location_id,
-      locationName: r.location_name,
     }));
   }
+
 
   async create(picture: Omit<PictureEntity, "id">): Promise<PictureEntity> {
     const res = await query(

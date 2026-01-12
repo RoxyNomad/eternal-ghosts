@@ -1,7 +1,7 @@
 // src/ui/components/admin/NewsForm.tsx
 "use client";
 
-import { useAdminNews } from "@/hooks/useAdminNews";
+import { useAdminNews } from "@/modules/news/ui/hooks/useAdminNews";
 import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
 
 import styles from "@/ui/styles/components/NewsForm.module.scss";
@@ -38,7 +38,7 @@ export default function NewsForm() {
             {/* Image Upload → Cloudinary /news */}
             <ImageUpload
                 folder="news"
-                onUpload={setUploadedImage}
+                onUploadAction={setUploadedImage}
             />
 
             {/* Submit */}

@@ -15,7 +15,7 @@ export default function MemberForm() {
 				<input name="name" placeholder="Name" value={newMember.name} onChange={handleChange} /><br />
 				<input name="role" placeholder="Role" value={newMember.role} onChange={handleChange} /><br />
 				<input name="imageUrl" placeholder="Image URL" value={newMember.imageUrl} onChange={handleChange} />
-				<ImageUpload onUpload={setUploadedImage} />
+				<ImageUpload onUploadAction={setUploadedImage} />
 				<button onClick={handleCreate} className={styles.formButton}>Create Member</button>
 			</div>
 

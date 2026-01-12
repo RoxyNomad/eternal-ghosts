@@ -5,7 +5,7 @@ import EventForm from "@/modules/events/ui/components/admin/EventForm";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
 import MemberForm from "@/modules/band-members/ui/components/MemberForm";
 import LivePictureForm from "@/modules/gallery/ui/components/admin/LivePictureForm";
-import NewsForm from "@/ui/components/admin/NewsForm";
+import NewsForm from "@/modules/news/ui/components/admin/NewsForm";
 
 import styles from "@/ui/styles/pages/admin.module.scss";
 

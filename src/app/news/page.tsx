@@ -2,12 +2,12 @@
 import React from "react";
 import Link from "next/link";
 
-import AnimatedPictureAndLogo from "@/ui/components/news/NewsAmination";
+import AnimatedPictureAndLogo from "../../modules/news/ui/components/NewsAmination";
 import HeaderNav from "@/ui/components/layout/Header";
 import SocialIcons from "@/ui/components/layout/SocialIcons";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import Footer from "@/ui/components/layout/Footer";
-import ReadMore from "@/ui/components/news/ReadMore";
+import ReadMore from "../../modules/news/ui/components/ReadMore";
 
 import styles from "@/ui/styles/pages/news.module.scss";
 

@@ -4,8 +4,7 @@ exports.up = pgm => {
         id: {
             type: "integer",
             primaryKey: true,
-            generated: { always: true },
-            identity: true,
+            generated: "always",
         },
 
         image_url: {

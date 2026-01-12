@@ -49,7 +49,7 @@ export default function LivePictureForm() {
 
                 <br />
 
-                <ImageUpload onUpload={setUploadedImage} folder="live-pictures" />
+                <ImageUpload onUploadAction={setUploadedImage} folder="live-pictures" />
 
                 <button
                     onClick={handleCreate}

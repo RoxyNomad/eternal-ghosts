@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-import SocialIcons from "./SocialIcons";
+import SocialIcons from "../../../../ui/components/layout/SocialIcons";
 
 import styles from "@/ui/styles/components/PageBar.module.scss";
 

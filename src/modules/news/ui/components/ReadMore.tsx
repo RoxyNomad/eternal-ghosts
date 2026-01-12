@@ -1,7 +1,7 @@
 // src/ui/components/news/ReadMore.tsx
 'use client';
 
-import { useNews } from "@/hooks/useNews";
+import { useNews } from "@/modules/news/ui/hooks/useNews";
 import styles from '@/ui/styles/components/ReadMore.module.scss'
 
 export default function ReadMore() {

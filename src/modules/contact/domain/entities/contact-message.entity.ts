@@ -1,4 +1,4 @@
-// src/domain/entities/ContactMessageEntity.ts
+// src/domain/entities/contact-message.entity.ts
 
 export class ContactMessage {
   constructor(

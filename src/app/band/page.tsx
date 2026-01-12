@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import AnimatedBandMembers from "@/modules/band-members/ui/components/AminatedBandMembers";
 import HeaderNav from "@/ui/components/layout/Header";
-import PageBar from "@/ui/components/layout/PageBarBand";
+import PageBar from "@/modules/news/ui/components/PageBarBand";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
 import Footer from "@/ui/components/layout/Footer";

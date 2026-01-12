@@ -1,6 +1,6 @@
 // src/app/contact/page.tsx
 import HeaderNav from "@/ui/components/layout/Header";
-import ContactForm from "@/ui/components/forms/ContactForm";
+import ContactForm from "@/modules/contact/ui/components/ContactForm";
 import AnimatedLogo from "@/ui/components/logo/RollInLogo";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";

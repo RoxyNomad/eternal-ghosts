@@ -1,4 +1,4 @@
-// src/domain/commands/SendContactMessageCommand.ts
+// src/domain/commands/send-contact-message.command.ts
 export interface SendContactMessageCommandProps {
   name: string;
   email: string;

@@ -1,8 +1,8 @@
-// src/application/handlers/SendContactMessageHandler.ts
+// src/application/handlers/send-contact-message.handler.ts
 
-import { ContactMessage } from "@/domain/entities/ContactMessageEntity";
-import { SendContactMessageCommand } from "@/application/commands/SendContactMessageCommand";
-import { MailServicePort } from "@/application/ports/MailServicePort";
+import { ContactMessage } from "@/modules/contact/domain/entities/contact-message.entity";
+import { SendContactMessageCommand } from "@/modules/contact/domain/commands/send-contact-message.command";
+import { MailServicePort } from "@/modules/contact/application/mail-service.port";
 
 export class SendContactMessageHandler {
   constructor(private readonly mailService: MailServicePort) {}

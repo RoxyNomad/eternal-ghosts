@@ -4,8 +4,7 @@ exports.up = pgm => {
         id: {
             type: "integer",
             primaryKey: true,
-            generated: { always: true },
-            identity: true,
+            generated: "always",
         },
 
         title: {
@@ -24,25 +23,24 @@ exports.up = pgm => {
         },
 
         published_at: {
-            type: "timestamptz",
+            type: "timestamp",
             notNull: true,
             default: pgm.func("now()"),
         },
 
         created_at: {
-            type: "timestamptz",
+            type: "timestamp",
             notNull: true,
             default: pgm.func("now()"),
         },
 
         updated_at: {
-            type: "timestamptz",
+            type: "timestamp",
             notNull: true,
             default: pgm.func("now()"),
         },
     });
 
-    // Für Sortierung auf der News-Seite
     pgm.createIndex("news", "published_at");
 };
 

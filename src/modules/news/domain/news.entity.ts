@@ -1,12 +1,10 @@
-// src/domain/entities/NewsEntity.ts
+// src/domain/entities/news.entity.ts
 export interface News {
     id: number;
     title: string;
-    content: string | null;
-    imageUrl: string;
+    content: string;
+    imageUrl: string | null;
     publishedAt: string;
-    createdAt: string;
-    updatedAt: string;
 }
 
 export interface CreateNews {

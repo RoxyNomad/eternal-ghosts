@@ -1,7 +1,7 @@
-// src/infrastructure/services/NodemailerMailService.ts
+// src/infrastructure/services/nodemailer-mail.service.ts
 
 import nodemailer from "nodemailer";
-import { MailServicePort } from "@/application/ports/MailServicePort";
+import { MailServicePort } from "@/modules/contact/application/mail-service.port";
 
 export class NodemailerMailService implements MailServicePort {
   private transporter = nodemailer.createTransport({

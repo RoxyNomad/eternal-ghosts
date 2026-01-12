@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { News } from "@/domain/entities/NewsEntity";
+import { News } from "@/modules/news/domain/news.entity";
 
 export function useNews() {
     const [news, setNews] = useState<News[]>([]);

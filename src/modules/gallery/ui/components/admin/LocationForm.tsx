@@ -18,7 +18,7 @@ export default function LocationForm() {
         onChange={handleChange}
       /><br />
 
-      <ImageUpload onUpload={setUploadedImage} folder="locations" />
+      <ImageUpload onUploadAction={setUploadedImage} folder="locations" />
 
       <button onClick={handleCreate} className={styles.formButton}>
         Add LocationEntity

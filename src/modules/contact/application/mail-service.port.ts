@@ -1,4 +1,4 @@
-// src/application/ports/MailServicePort.ts
+// src/application/ports/mail-service.port.ts
 
 export interface MailServicePort {
   sendMail(params: {
