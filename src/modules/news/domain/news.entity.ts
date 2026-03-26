@@ -1,4 +1,4 @@
-// src/domain/entities/news.entity.ts
+// src/modules/news/domain/news.entity.ts
 export interface News {
     id: number;
     title: string;

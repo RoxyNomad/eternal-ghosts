@@ -1,4 +1,4 @@
-// src/hooks/useNews.ts
+// src/modules/news/ui/hooks/useNews.ts
 'use client'
 
 import { useState, useEffect } from 'react';

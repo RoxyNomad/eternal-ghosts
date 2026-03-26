@@ -19,6 +19,8 @@
     margin: 0 auto;
     text-decoration: none;
     letter-spacing: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .readMore {
@@ -28,18 +30,18 @@
     color: white;
     text-decoration: none;
     letter-spacing: 1vw;
-    left: 77.5%;
+    left: 75%;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 1vh;
     border: 0.1vh solid #ff0000;
     box-shadow: 8px 5px 5px black;
     padding-right: 0;
     padding-left: 1vh;
-    
+    top: 50%;
+    transform: translateY(-50%);
+
     &:hover {
       background-color: rgba(187, 187, 187, 0.2);
-      font-weight: 900;
-      transform: scale(1.15);
       cursor: pointer;
     }
   }

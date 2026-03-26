@@ -15,7 +15,8 @@ export default function NewsForm() {
     } = useAdminNews();
 
     return (
-        <section className={styles.newsForm}>
+        <section className={styles.newsContainer}>
+            <h1>News</h1>
             <h2>Create News</h2>
 
             {/* Title */}

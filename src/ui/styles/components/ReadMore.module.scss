@@ -1,0 +1,19 @@
+.newsList {
+  width: 90%;
+  margin: 0 auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+
+  .newsItem {
+    display: flex;
+    padding: 2vh 2vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1vh;
+    box-shadow: 0 0 10px #000;
+    gap: 2vw;
+
+    .newsImage {
+      width: 20vw;
+    }
+  }
+}

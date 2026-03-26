@@ -1,6 +1,6 @@
-// migrations/1766223869074_create-news.js
+// migrations/1774533504962_create-biography.js
 exports.up = pgm => {
-    pgm.createTable("news", {
+    pgm.createTable("biography", {
         id: {
             type: "integer",
             primaryKey: true,
@@ -15,11 +15,6 @@ exports.up = pgm => {
         content: {
             type: "text",
             notNull: true,
-        },
-
-        image_url: {
-            type: "text",
-            notNull: false,
         },
 
         published_at: {
@@ -41,9 +36,9 @@ exports.up = pgm => {
         },
     });
 
-    pgm.createIndex("news", "published_at");
+    pgm.createIndex("biography", "published_at");
 };
 
 exports.down = pgm => {
-    pgm.dropTable("news");
+    pgm.dropTable("biography");
 };

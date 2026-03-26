@@ -33,7 +33,7 @@ export default function EventForm() {
         />
         <input
           name="location"
-          placeholder="LocationEntity"
+          placeholder="Location"
           value={newEvent.location}
           onChange={handleChange}
         /><br />

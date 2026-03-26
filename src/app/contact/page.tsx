@@ -1,11 +1,11 @@
 // src/app/contact/page.tsx
 import HeaderNav from "@/ui/components/layout/Header";
 import ContactForm from "@/modules/contact/ui/components/ContactForm";
-import AnimatedLogo from "@/ui/components/logo/RollInLogo";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
 import SocialIcons from "@/ui/components/layout/SocialIcons";
 import Footer from "@/ui/components/layout/Footer";
+import Image from "next/image";
 
 export const metadata = {
   title: "Contact - Eternal Ghosts",
@@ -21,7 +21,13 @@ export default function ContactPage() {
             <HeaderNav active="contact" />
             <section>
               <div className='logoContainer'>
-                <AnimatedLogo />
+                <Image
+                    src="/pictures/favImage.png"
+                    alt="Eternal Ghosts Logo"
+                    width={3840}
+                    height={2160}
+                    className='logo'
+                />
               </div>
               <div className='navPageBar'>
                 <p className='navPageTitle'>CONTACT</p>

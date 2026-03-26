@@ -1,5 +1,5 @@
 // src/app/biography/page.tsx
-import AnimatedLogo from "@/ui/components/logo/RollInLogo";
+
 import HeaderNav from "@/ui/components/layout/Header";
 import PageBar from "@/modules/news/ui/components/PageBarBand";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
@@ -7,6 +7,7 @@ import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
 import Footer from "@/ui/components/layout/Footer";
 
 import styles from "@/ui/styles/pages/biography.module.scss";
+import Image from "next/image";
 
 export const metadata = {
   title: "Eternal Ghosts – Biography",
@@ -20,10 +21,14 @@ export default function BiographyPage() {
           <main>
             <HeaderNav active="band" />
             <section>
-              <div
-                className='logoContainer'
-              >
-                <AnimatedLogo />
+              <div className='logoContainer'>
+                <Image
+                    src="/pictures/favImage.png"
+                    alt="Eternal Ghosts Logo"
+                    width={3840}
+                    height={2160}
+                    className='logo'
+                />
               </div>
               {/* Sub-navigation for the Band page */}
               <PageBar 

@@ -1,4 +1,4 @@
-// src/application/queries/get-all-news.query.ts
+// src/modules/news/application/get-all-news.query.ts
 import { NewsRepository} from "@/modules/news/domain/news.repository";
 
 export class GetAllNewsQuery {

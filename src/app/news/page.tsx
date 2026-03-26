@@ -22,12 +22,15 @@ export default function News() {
               <AnimatedPictureAndLogo />
             </div>
             <div className={styles.navPageBar}>
-              <div className={styles.navPageTitle}>NEWS</div>
               <SocialIcons variant='news' />
+              <div className='newsContainer'>
+                <div className={styles.navPageTitle}>NEWS</div>
                 <Link
-                    href='#read-more' className={styles.readMore}>READMORE
+                    href='#read-more' className={styles.readMore}>READ MORE
                 </Link>
+              </div>
             </div>
+
           </section>
           <section id='read-more'>
             <ReadMore />

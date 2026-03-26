@@ -8,8 +8,6 @@ import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
 import Footer from "@/ui/components/layout/Footer";
 
-import styles from "@/ui/styles/pages/band.module.scss";
-
 export const metadata = {
   title: "Eternal Ghosts – Band",
   description: "Eternal Ghosts Band Members",
@@ -29,7 +27,7 @@ export default function BandPage() {
                   alt="Eternal Ghosts Logo"
                   width={3840}
                   height={2160}
-                  className={styles.logo}
+                  className='logo'
                 />
               </div>
               <PageBar 

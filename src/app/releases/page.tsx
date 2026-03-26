@@ -1,12 +1,12 @@
 // app/releases/page.tsx
 import React from "react";
 
-import AnimatedLogo from "@/ui/components/logo/RollInLogo";
 import HeaderNav from "@/ui/components/layout/Header";
 import SocialIcons from "@/ui/components/layout/SocialIcons";
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal"
 import NoScrollVertical from "@/ui/components/layout/NoScrollVertical";
 import Footer from "@/ui/components/layout/Footer";
+import Image from "next/image";
 
 export default function Releases() {
   return (
@@ -18,7 +18,13 @@ export default function Releases() {
 
             <section>
               <div className='logoContainer'>
-                <AnimatedLogo />
+                <Image
+                    src="/pictures/favImage.png"
+                    alt="Eternal Ghosts Logo"
+                    width={3840}
+                    height={2160}
+                    className='logo'
+                />
               </div>
 
               <div className='navPageBar'>

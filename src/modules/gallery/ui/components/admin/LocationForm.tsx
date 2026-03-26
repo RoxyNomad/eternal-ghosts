@@ -13,7 +13,7 @@ export default function LocationForm() {
 
       <input
         name="name"
-        placeholder="LocationEntity Name"
+        placeholder="Location Name"
         value={newLocation.name}
         onChange={handleChange}
       /><br />
@@ -21,7 +21,7 @@ export default function LocationForm() {
       <ImageUpload onUploadAction={setUploadedImage} folder="locations" />
 
       <button onClick={handleCreate} className={styles.formButton}>
-        Add LocationEntity
+        Add Location
       </button>
     </div>
   );

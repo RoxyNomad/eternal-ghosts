@@ -1,4 +1,4 @@
-// src/domain/repositories/news.repository.ts
+// src/modules/news/domain/news.repository.ts
 import { News, CreateNews } from './news.entity';
 
 export interface NewsRepository {
