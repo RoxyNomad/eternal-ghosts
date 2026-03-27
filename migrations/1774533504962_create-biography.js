@@ -1,10 +1,10 @@
 // migrations/1774533504962_create-biography.js
-exports.up = pgm => {
+exports.up = (pgm) => {
     pgm.createTable("biography", {
         id: {
             type: "integer",
             primaryKey: true,
-            generated: "always",
+            identity: true,
         },
 
         title: {
@@ -39,6 +39,6 @@ exports.up = pgm => {
     pgm.createIndex("biography", "published_at");
 };
 
-exports.down = pgm => {
+exports.down = (pgm) => {
     pgm.dropTable("biography");
 };

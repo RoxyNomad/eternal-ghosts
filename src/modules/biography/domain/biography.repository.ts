@@ -1,7 +1,9 @@
 // src/modules/biography/domain/biography.repository.ts
-import { Biography } from './biography.entity';
+import {Biography, CreateBiography, UpdateBiography} from './biography.entity';
 
 export interface BiographyRepository {
     getAllPublished(): Promise<Biography[]>;
-    create(data: Biography): Promise<Biography>;
+    getLatestPublished(): Promise<Biography | null>;
+    create(data: CreateBiography): Promise<Biography>;
+    update(data: UpdateBiography): Promise<Biography>;
 }

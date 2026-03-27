@@ -1,18 +1,33 @@
 .biographyContainer {
+  position: relative;
   width: 75vw;
+  height: 50vh;
   margin: 0 auto;
   color: whitesmoke;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  display: flex;
-  flex-direction: column;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 1vh;
   box-shadow: 0 0 10px #000;
   padding: 2vh 2vw;
 
-  input[name='title'],
-  input[name='date'],
-  input[name='location'] {
+  .leftSide {
+    position: absolute;
+    top: 25%;
+    left: 3%;
+  }
+
+  .rightSide {
+    position: absolute;
+    top: 25%;
+    right: 3%;
+  }
+
+  .formBox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[name='title'] {
     margin: 0.7vh 0;
     padding: 0.5vh;
     background-color: rgba(0, 0, 0, 0.4);
@@ -21,15 +36,10 @@
     font-size: 1rem;
     color: whitesmoke;
     height: 2.5vh;
-    width: 20vw;
+    width: 35vw;
   }
 
-  input[type="datetime-local"] {
-    color-scheme: dark;
-  }
-
-
-  textarea[name='description'] {
+  textarea[name='content'] {
     margin: 0.7vh 0;
     padding: 0.5vh;
     background-color: rgba(0, 0, 0, 0.4);
@@ -37,7 +47,6 @@
     box-shadow: 0 0 10px #000;
     font-size: 1rem;
     height: 10vh;
-    width: 75vw;
     color:whitesmoke;
   }
 

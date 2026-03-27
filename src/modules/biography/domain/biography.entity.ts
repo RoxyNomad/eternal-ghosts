@@ -12,3 +12,9 @@ export interface CreateBiography {
     title: string;
     content: string;
 }
+
+export interface UpdateBiography {
+    id: number;
+    title: string;
+    content: string;
+}

@@ -3,10 +3,14 @@
 
 import { useState } from "react";
 
-export function useAdminBiography() {
+export function useAdminBiography(initial?: {
+    id?: number;
+    title?: string;
+    content?: string;
+}) {
     const [form, setForm] = useState({
-        title: "",
-        content: "",
+        title: initial?.title ?? "",
+        content: initial?.content ?? "",
     });
 
     const handleChange = (
@@ -16,13 +20,21 @@ export function useAdminBiography() {
     };
 
     const handleSubmit = async () => {
-        await fetch("/api/admin/biography", {
-            method: "POST",
+        const method = initial?.id ? "PUT" : "POST";
+        const url = initial?.id
+            ? `/api/admin/biography/${initial.id}`
+            : "/api/admin/biography";
+
+        await fetch(url, {
+            method,
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form),
         });
 
-        setForm({ title: "", content: "", });
+        // reset nur wenn CREATE
+        if (!initial?.id) {
+            setForm({ title: "", content: "" });
+        }
     };
 
     return {
