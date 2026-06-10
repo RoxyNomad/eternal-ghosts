@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Event } from "@/modules/events/types";
+import { Event } from "@/modules/events/domain/events.entity";
 
 export function useEvents() {
     const [events, setEvents] = useState<Event[]>([]);

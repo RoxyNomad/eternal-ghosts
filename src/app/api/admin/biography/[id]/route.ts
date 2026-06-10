@@ -5,13 +5,16 @@ import { UpdateBiographyCommand } from "@/modules/biography/application/commands
 
 const command = new UpdateBiographyCommand(new DbBiographyRepository());
 
-export async function PUT(req: Request, context: { params: { id: string } }) {
+export async function PUT(
+    req: Request,
+    { params }: { params: Promise<{ id: string }> }
+) {
     const body = await req.json();
-    const id = Number(context.params.id);
+    const { id } = await params;
 
     return NextResponse.json(
         await command.execute({
-            id,
+            id: Number(id),
             title: body.title,
             content: body.content,
         })

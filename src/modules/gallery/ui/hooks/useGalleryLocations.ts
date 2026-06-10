@@ -21,8 +21,12 @@ export function useGalleryLocations() {
         if (!res.ok) throw new Error("Failed to load locations");
         const data: GalleryLocation[] = await res.json();
         setLocations(data);
-      } catch (err: any) {
-        setError(err.message ?? "Unknown error");
+      } catch (err: unknown) {
+        setError(
+            err instanceof Error
+            ? err.message
+            : "Unknown error"
+        );
       } finally {
         setLoading(false);
       }

@@ -28,8 +28,12 @@ export function usePicturesByLocation(locationId: number) {
 
         const data: Picture[] = await res.json();
         setPictures(data);
-      } catch (err: any) {
-        setError(err.message ?? "Unknown error");
+      } catch (err: unknown) {
+        setError(
+            err instanceof Error
+            ? err.message
+            : "Unknown error"
+      );
       } finally {
         setLoading(false);
       }

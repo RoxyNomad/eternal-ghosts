@@ -6,3 +6,8 @@ export interface PictureEntity {
     locationId: number;
     locationName?: string;
 }
+
+export type CreatePictureInput = Omit<
+    PictureEntity,
+    "id" | "locationName"
+>;

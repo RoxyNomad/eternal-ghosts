@@ -8,8 +8,13 @@ export function uploadToCloudinary(
     return new Promise((resolve, reject) => {
         cloudinary.uploader
             .upload_stream({ folder }, (error, result) => {
-                if (error || !result) return reject(error);
-                resolve(result as any);
+                if (error || !result) {
+                    return reject(error ?? new Error("Upload failed."));
+                }
+
+                resolve({
+                    secure_url: result.secure_url,
+                });
             })
             .end(buffer);
     });

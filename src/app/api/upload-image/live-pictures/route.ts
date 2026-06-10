@@ -1,6 +1,7 @@
 // src/app/api/upload-image/events-pictures/route.ts
 import { NextResponse } from "next/server";
 import { cloudinary } from "@/infrastructure/cloudinary/config";
+import { UploadApiResponse } from "cloudinary";
 
 export async function POST(req: Request) {
   try {
@@ -14,16 +15,24 @@ export async function POST(req: Request) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    const uploadResult = await new Promise<any>((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(
-        { folder: "live-pictures" },
-        (error, result) => {
-          if (error) return reject(error);
-          resolve(result);
+    const uploadResult = await new Promise<UploadApiResponse>(
+        (resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+              { folder: "live-pictures" },
+              (error, result) => {
+                if (error) return reject(error);
+
+                if (!result) {
+                  return reject(new Error("No upload result"));
+                }
+
+                resolve(result);
+              }
+          );
+
+          stream.end(buffer);
         }
-      );
-      stream.end(buffer);
-    });
+    );
 
     return NextResponse.json({ success: true, secure_url: uploadResult.secure_url });
   } catch (error) {

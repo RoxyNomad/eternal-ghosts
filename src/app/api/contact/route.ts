@@ -19,9 +19,12 @@ export async function POST(req: Request) {
     const result = await handler.execute(command);
 
     return NextResponse.json(result);
-  } catch (e: any) {
+  } catch (e: unknown) {
     return NextResponse.json(
-        { success: false, error: e.message },
+        {
+          success: false,
+          error: e instanceof Error ? e.message : "Unknown error",
+        },
         { status: 400 }
     );
   }

@@ -1,4 +1,4 @@
-// src/modules/events/types.ts
+// src/modules/events/domain/events.entity.ts
 export interface Event {
     id: number;
     title: string;

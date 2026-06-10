@@ -21,8 +21,14 @@ export async function POST(req: Request) {
 
     const location = await repo.create({ name: data.name, imageUrl: data.imageUrl || null });
     return NextResponse.json(location);
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(err);
-    return NextResponse.json({ error: err.message || "Failed to create location" }, { status: 500 });
+    return NextResponse.json(
+        { error:
+              err instanceof Error
+                  ? err.message
+                  : "Failed to create location"
+        },
+        { status: 500 });
   }
 }

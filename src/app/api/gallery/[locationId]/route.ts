@@ -1,3 +1,4 @@
+// src/app/api/gallery/[locationId]/route.ts
 import { NextResponse } from "next/server";
 import { DbPictureRepository } from "@/modules/gallery/infrastructure/db-picture.repository";
 

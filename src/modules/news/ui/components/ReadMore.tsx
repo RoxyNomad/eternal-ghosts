@@ -1,6 +1,6 @@
 // src/ui/components/news/ReadMore.tsx
 'use client';
-
+import Image from "next/image";
 import { useNews } from "@/modules/news/ui/hooks/useNews";
 import styles from '@/ui/styles/components/ReadMore.module.scss'
 
@@ -14,7 +14,7 @@ export default function ReadMore() {
             {news.map(item => (
                 <article key={item.id} className={styles.newsItem}>
                     {item.imageUrl && (
-                        <img src={item.imageUrl} alt={item.title} className={styles.newsImage} />
+                        <Image src={item.imageUrl} alt={item.title} className={styles.newsImage} />
                     )}
 
                     <div className={styles.content}>

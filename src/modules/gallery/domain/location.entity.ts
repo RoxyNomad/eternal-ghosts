@@ -3,5 +3,11 @@ export interface LocationEntity {
     id: number;
     name: string;
     imageUrl: string | null;
-    pictureCount?: number;
+}
+
+export interface LocationWithCount {
+    id: number;
+    name: string;
+    imageUrl: string | null;
+    pictureCount: number;
 }

@@ -1,63 +1,88 @@
 // src/modules/gallery/infrastructure/db-location.repository.ts
-import { LocationRepository } from "../domain/location.repository";
-import { LocationEntity } from "../domain/location.entity";
+
 import { query } from "@/utils/db";
+import { LocationRepository } from "../domain/location.repository";
+import {
+  LocationMapper,
+  LocationRow,
+  LocationWithCountRow
+} from "./mappers/location.mapper";
+import { LocationEntity, LocationWithCount } from "../domain/location.entity";
 
 export class DbLocationRepository implements LocationRepository {
-  async getAll(): Promise<(LocationEntity & { pictureCount: number })[]> {
-    const res = await query(`SELECT id, name, image_url FROM locations ORDER BY name ASC`);
-    const locations = res.rows.map((row: any) => ({
-      id: row.id,
-      name: row.name,
-      imageUrl: row.image_url,
-      pictureCount: 0,
-    }));
+  async getAll(): Promise<LocationEntity[]> {
+    const res = await query(`
+      SELECT id, name, image_url
+      FROM locations
+      ORDER BY name ASC
+    `);
 
-    // For each location, count pictures from live_pictures matching by name
-    for (const loc of locations) {
-      const countRes = await query(
-          `SELECT COUNT(*) FROM live_pictures WHERE location_id = $1`,
-          [loc.id]
-      );
-      loc.pictureCount = Number(countRes.rows[0].count);
-    }
-
-    return locations;
+    return LocationMapper.toDomainList(res.rows as LocationRow[]);
   }
 
-  async create(location: Omit<LocationEntity, "id">): Promise<LocationEntity> {
+  async getAllWithPictureCount(): Promise<LocationWithCount[]> {
+    const res = await query(`
+    SELECT 
+      l.id,
+      l.name,
+      l.image_url,
+      COUNT(p.id)::int AS picture_count
+    FROM locations l
+    LEFT JOIN live_pictures p ON p.location_id = l.id
+    GROUP BY l.id
+    ORDER BY l.name ASC
+  `);
+
+    return LocationMapper.toWithCountList(
+        res.rows as LocationWithCountRow[]
+    );
+  }
+
+  async create(data: Omit<LocationEntity, "id">): Promise<LocationEntity> {
     const res = await query(
-      `INSERT INTO locations (name, image_url) VALUES ($1, $2) RETURNING id, name, image_url`,
-      [location.name, location.imageUrl]
+        `INSERT INTO locations (name, image_url)
+       VALUES ($1, $2)
+       RETURNING id, name, image_url`,
+        [data.name, data.imageUrl]
     );
 
-    const row = res.rows[0];
-    return { id: row.id, name: row.name, imageUrl: row.image_url };
+    return LocationMapper.toDomain(res.rows[0] as LocationRow);
   }
 
-  async update(id: number, data: Partial<Omit<LocationEntity, "id">>): Promise<LocationEntity> {
+  async update(
+      id: number,
+      data: Partial<Omit<LocationEntity, "id">>
+  ): Promise<LocationEntity> {
     const updates: string[] = [];
-    const values: any[] = [];
-    let idx = 1;
+    const values: (string | number | null)[] = [];
 
-    if (data.name) {
-      updates.push(`name = $${idx++}`);
+    let index = 1;
+
+    if (data.name !== undefined) {
+      updates.push(`name = $${index++}`);
       values.push(data.name);
     }
+
     if (data.imageUrl !== undefined) {
-      updates.push(`image_url = $${idx++}`);
+      updates.push(`image_url = $${index++}`);
       values.push(data.imageUrl);
     }
 
     values.push(id);
 
     const res = await query(
-      `UPDATE locations SET ${updates.join(", ")} WHERE id = $${idx} RETURNING id, name, image_url`,
-      values
+        `
+      UPDATE locations
+      SET ${updates.join(", ")}
+      WHERE id = $${index}
+      RETURNING id, name, image_url
+    `,
+        values
     );
 
-    const row = res.rows[0];
-    return { id: row.id, name: row.name, imageUrl: row.image_url };
+    return LocationMapper.toDomain(
+        res.rows[0] as LocationRow
+    );
   }
 
   async delete(id: number): Promise<void> {

@@ -1,8 +1,7 @@
 // src/ui/components/admin/MemberForm.tsx
+import Image from "next/image";
 import ImageUpload from "@/modules/gallery/ui/components/admin/ImageUpload";
-
 import { useMembers } from "@/modules/band-members/ui/hooks/useMembers";
-
 import styles from '@/ui/styles/components/MemberForm.module.scss'
 
 export default function MemberForm() {
@@ -22,7 +21,7 @@ export default function MemberForm() {
 			<div className={styles.memberList}>
 				{members.map((m) => (
 					<div key={m.id} className={styles.memberCard}>
-						<img src={m.imageUrl} alt={m.name} width={150} />
+						<Image src={m.imageUrl} alt={m.name} width={150} />
 						<p>{m.name}</p>
 						<p>{m.role}</p>
 						<button onClick={() => handleDelete(m.id)} className={styles.formButton}>Delete</button>

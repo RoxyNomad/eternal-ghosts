@@ -1,6 +1,7 @@
 // src/modules/gallery/infrastructure/db-picture.repository.ts
 import { PictureRepository } from "../domain/picture.repository";
-import { PictureEntity } from "../domain/picture.entity";
+import { CreatePictureInput, PictureEntity } from "../domain/picture.entity";
+import { PictureMapper, PictureRow } from "./mappers/picture.mapper";
 import { query } from "@/utils/db";
 
 export class DbPictureRepository implements PictureRepository {
@@ -13,20 +14,16 @@ export class DbPictureRepository implements PictureRepository {
         p.location_id,
         l.name AS location_name
       FROM live_pictures p
-      JOIN locations l ON l.id = p.location_id
+             JOIN locations l ON l.id = p.location_id
       ORDER BY p.id ASC
     `);
 
-    return res.rows.map((r: any) => ({
-      id: r.id,
-      date: r.date,
-      imageUrl: r.image_url,
-      locationId: r.location_id,
-      locationName: r.location_name,
-    }));
+    return PictureMapper.toDomainList(
+        res.rows as PictureRow[]
+    );
   }
 
-  async getByLocationId(locationId: number) {
+  async getByLocationId(locationId: number): Promise<PictureEntity[]> {
     const res = await query(
         `
           SELECT id, date, image_url, location_id
@@ -37,27 +34,30 @@ export class DbPictureRepository implements PictureRepository {
         [locationId]
     );
 
-    return res.rows.map((r: any) => ({
-      id: r.id,
-      date: r.date,
-      imageUrl: r.image_url,
-      locationId: r.location_id,
-    }));
+    return PictureMapper.toDomainList(
+        res.rows as PictureRow[]
+    );
   }
 
-
-  async create(picture: Omit<PictureEntity, "id">): Promise<PictureEntity> {
+  async create(input: CreatePictureInput): Promise<PictureEntity> {
     const res = await query(
-      `INSERT INTO live_pictures (date, location_id, image_url)
-        VALUES ($1, $2, $3)
-          RETURNING id, date, image_url, location_id`,
-        [picture.date, picture.locationId, picture.imageUrl]
+        `
+          INSERT INTO live_pictures (date, location_id, image_url)
+          VALUES ($1, $2, $3)
+            RETURNING id, date, image_url, location_id
+        `,
+        [input.date, input.locationId, input.imageUrl]
     );
 
-    return res.rows[0];
+    return PictureMapper.toDomain(
+        res.rows[0] as PictureRow
+    );
   }
 
   async delete(id: number): Promise<void> {
-    await query(`DELETE FROM live_pictures WHERE id = $1`, [id]);
+    await query(
+        `DELETE FROM live_pictures WHERE id = $1`,
+        [id]
+    );
   }
 }
