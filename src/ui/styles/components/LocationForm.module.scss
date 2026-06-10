@@ -1,0 +1,28 @@
+.locationContainer {
+	input[name='name'] {
+		margin: 0.7vh 0;
+		padding: 0.5vh;
+		background-color: rgba(0, 0, 0, 0.4);
+		border-radius: 1vh;
+		box-shadow: 0 0 10px #000;
+		font-size: 1rem;
+		color: whitesmoke;
+		height: 2.5vh;
+		width: 20vw;
+	}
+
+	.formButton {
+		margin: 1vh 0;
+		padding: 0.5vh;
+		background-color: rgba(0, 0, 0, 0.4);
+		border-radius: 1vh;
+		box-shadow: 0 0 10px #000;
+		color: whitesmoke;
+		font-size: 1rem;
+
+		&:hover {
+			background-color: rgba(179, 179, 179, 0.4);
+			cursor: pointer;
+		}
+	}
+}
