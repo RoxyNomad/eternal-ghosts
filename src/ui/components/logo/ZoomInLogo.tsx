@@ -14,7 +14,8 @@ const ZoomInLogo = () => {
     >
       <Image 
         src="/pictures/favImage.png" 
-        alt="Eternal Ghosts Logo" 
+        alt="Eternal Ghosts Logo"
+        priority 
         className={styles.logo}  
         width={1075.2} 
         height={716.1}
