@@ -24,6 +24,7 @@ export default function ContactPage() {
                 <Image
                     src="/pictures/favImage.png"
                     alt="Eternal Ghosts Logo"
+                    priority
                     width={3840}
                     height={2160}
                     className='logo'

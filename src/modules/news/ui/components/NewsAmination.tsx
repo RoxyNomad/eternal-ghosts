@@ -16,7 +16,8 @@ const AnimatedPictureAndLogo = () => {
       >
         <Image 
           src="https://res.cloudinary.com/dszfev5rp/image/upload/v1764162985/015-2_ifgc6d.png" 
-          alt="Eternal Ghosts" 
+          alt="Eternal Ghosts"
+          priority 
           width={1382.4}
           height={1166.22}
           className={styles.Picture}
@@ -31,7 +32,8 @@ const AnimatedPictureAndLogo = () => {
       >
         <Image 
           src="/pictures/favImage-2.png" 
-          alt="Eternal Ghosts Logo" 
+          alt="Eternal Ghosts Logo"
+          priority 
           width={1382.4}
           height={1166.22}
           className={styles.logoXL}
