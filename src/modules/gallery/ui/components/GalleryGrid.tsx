@@ -19,7 +19,7 @@ export default function GalleryGrid({ locationId }: Props) {
     <div className={styles.gallery}>
       {pictures.map((picture) => (
         <div key={picture.id} className={styles.galleryItem}>
-          <Image src={picture.imageUrl} alt={`Picture from ${picture.locationId}`} className={styles.image} />
+          <Image src={picture.imageUrl} alt={`Picture from ${picture.locationId}`} className={styles.image} width={200} height={200} />
           <div className={styles.overlay}>
             <p>{new Date(picture.date).toLocaleDateString()}</p>
           </div>

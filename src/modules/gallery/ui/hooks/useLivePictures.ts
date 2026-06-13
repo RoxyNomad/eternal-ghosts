@@ -35,16 +35,25 @@ export function useLivePictures() {
   };
 
   const handleCreate = async () => {
-    await fetch("/api/admin/live-pictures", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...newLivePicture,
-        date: newLivePicture.date, // ISO string
-      }),
+    const response = await fetch(
+      "/api/admin/live-pictures",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newLivePicture),
+      }
+    );
+
+    console.log(await response.text());
+
+    setNewLivePicture({
+      locationId: "",
+      date: "",
+      imageUrl: "",
     });
 
-    setNewLivePicture({ locationId: "", date: "", imageUrl: ""});
     fetchPictures();
   };
 

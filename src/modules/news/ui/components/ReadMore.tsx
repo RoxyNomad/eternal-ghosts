@@ -14,7 +14,7 @@ export default function ReadMore() {
             {news.map(item => (
                 <article key={item.id} className={styles.newsItem}>
                     {item.imageUrl && (
-                        <Image src={item.imageUrl} alt={item.title} className={styles.newsImage} />
+                        <Image src={item.imageUrl} alt={item.title} className={styles.newsImage} width={300} height={200} />
                     )}
 
                     <div className={styles.content}>
