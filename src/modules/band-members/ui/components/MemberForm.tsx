@@ -21,7 +21,7 @@ export default function MemberForm() {
 			<div className={styles.memberList}>
 				{members.map((m) => (
 					<div key={m.id} className={styles.memberCard}>
-						{m.imageUrl && <Image src={m.imageUrl} alt={m.name} width={150} />}
+						{m.imageUrl && <Image src={m.imageUrl} alt={m.name} width={150} height={225}/>}
 						<p>{m.name}</p>
 						<p>{m.role}</p>
 						<button onClick={() => handleDelete(m.id)} className={styles.formButton}>Delete</button>

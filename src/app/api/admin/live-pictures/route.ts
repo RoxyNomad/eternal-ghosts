@@ -1,4 +1,4 @@
-// src/app/api/admin/gallery/pictures/route.ts
+// src/app/api/admin/live-pictures/route.ts
 import { NextResponse } from "next/server";
 import { DbPictureRepository } from "@/modules/gallery/infrastructure/db-picture.repository";
 import { CreatePictureHandler } from "@/modules/gallery/application/handlers/create-picture.handler";
