@@ -1,0 +1,15 @@
+.logoutButton {
+	margin: 1vh 0;
+	padding: 0.5vh;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 1vh;
+	box-shadow: 0 0 10px #000;
+	color: white;
+	font-family: Verdana, sans-serif;
+	font-size: 1.7vh;
+
+	&:hover {
+		background-color: rgba(179, 179, 179, 0.4);
+		cursor: pointer;
+	}
+}
