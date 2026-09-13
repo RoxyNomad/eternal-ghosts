@@ -2,6 +2,10 @@
   "name": "eternal-ghosts",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -35,6 +39,6 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.1.6"
+    "eslint-config-next": "16.2.9"
   }
 }

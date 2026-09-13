@@ -1,6 +1,6 @@
 // src/app/releases/page.tsx
 import React from "react";
-import Image from "next/image";
+import Image from "next/image" ;
 
 import HeaderNav from "@/ui/components/layout/Header";
 import SocialIcons from "@/ui/components/layout/SocialIcons";
