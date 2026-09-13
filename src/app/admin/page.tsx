@@ -10,6 +10,7 @@ import BiographyForm from "@/modules/biography/ui/components/admin/BiographyForm
 import LogoutButton from "@/modules/auth/ui/components/LogoutButton";
 
 import styles from "@/ui/styles/pages/admin.module.scss";
+import ReleaseForm from "@/modules/releases/ui/components/admin/ReleaseForm";
 
 
 export default function AdminPage() {
@@ -18,6 +19,7 @@ export default function AdminPage() {
       <div className={styles.adminPage}>
           <HeaderNav active="admin" />
           <NewsForm />
+          <ReleaseForm />
           <EventForm />
           <LivePictureForm />
           <BiographyForm />
