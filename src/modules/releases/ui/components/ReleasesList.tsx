@@ -1,7 +1,6 @@
-// src/modules/releases/ui/components/ReleasesList.tsx
-import React from "react";
 import Image from "next/image";
 import { ReleaseCardReadModel } from "../../application/read-models/release-card.read-model";
+import { AudioPlayer } from "./AudioPlayer";
 
 import styles from "@/ui/styles/components/ReleasesList.module.scss";
 
@@ -36,12 +35,20 @@ export default function ReleasesList({ releases }: ReleasesListProps) {
                 </div>
 
                 <div className={styles.infoContainer}>
-                  <span className={styles.type}>{release.type}</span>
-                  <h3 className={styles.title}>{release.title}</h3>
-                  {release.description && (
-                    <p className={styles.description}>{release.description}</p>
+                  <div className={styles.textDetails}>
+                    <span className={styles.type}>{release.type}</span>
+                    <h3 className={styles.title}>{release.title}</h3>
+                    {release.description && (
+                      <p className={styles.description}>{release.description}</p>
+                    )}
+                    <span className={styles.date}>{release.formattedDate}</span>
+                  </div>
+
+                  {release.audioUrl && (
+                    <div className={styles.playerWrapper}>
+                      <AudioPlayer src={release.audioUrl} title={release.title} />
+                    </div>
                   )}
-                  <span className={styles.date}>{release.formattedDate}</span>
                 </div>
 
               </div>

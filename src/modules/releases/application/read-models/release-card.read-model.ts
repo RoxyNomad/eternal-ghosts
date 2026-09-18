@@ -1,4 +1,3 @@
-// src/modules/releases/application/read-models/release-card.read-model.ts
 export interface ReleaseCardReadModel {
   id: string;
   title: string;
@@ -6,4 +5,5 @@ export interface ReleaseCardReadModel {
   formattedDate: string;
   coverUrl: string;
   description: string | null;
+  audioUrl?: string;
 }

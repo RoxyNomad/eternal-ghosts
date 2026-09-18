@@ -33,6 +33,15 @@ exports.up = (pgm) => {
       type: 'text',
       notNull: false,
     },
+    // In der Up-Migration hinzufügen:
+    audio_url: {
+      type: 'text',
+      notNull: false, // Optional, falls ein Release nur angekündigt ist
+    },
+    audio_public_id: {
+      type: 'text',
+      notNull: false,
+    },
     created_at: {
       type: 'timestamp with time zone',
       notNull: true,

@@ -12,6 +12,7 @@ export default function ReleaseForm() {
     handleFileChange,
     handleCreate,
     handleDelete,
+    isUploading,
   } = useReleases();
 
   return (
@@ -52,13 +53,26 @@ export default function ReleaseForm() {
           required
         />
 
-        <input
-          type="file"
-          name="cover"
-          accept="image/*"
-          onChange={handleFileChange}
-          required
-        />
+        <div>
+          <label style={{ display: "block", marginBottom: "0.5vh", fontSize: "0.9rem" }}>Cover Image</label>
+          <input
+            type="file"
+            name="cover"
+            accept="image/*"
+            onChange={handleFileChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label style={{ display: "block", marginBottom: "0.5vh", fontSize: "0.9rem" }}>Audio Track (Optional)</label>
+          <input
+            type="file"
+            name="audio"
+            accept="audio/*"
+            onChange={handleFileChange}
+          />
+        </div>
 
         <textarea
           name="description"
@@ -67,8 +81,8 @@ export default function ReleaseForm() {
           onChange={handleChange}
         />
 
-        <button type="submit" className={styles.formButton}>
-          Publish Release
+        <button type="submit" disabled={isUploading} className={styles.formButton}>
+          {isUploading ? "Uploading..." : "Publish Release"}
         </button>
       </form>
 
@@ -90,6 +104,16 @@ export default function ReleaseForm() {
               <h4>{r.title}</h4>
               <p><strong>Type:</strong> {r.type}</p>
               <p><strong>Date:</strong> {new Date(r.releaseDate).toLocaleDateString("de-CH")}</p>
+              
+              {/* Audio Player Anzeige */}
+              {r.audioUrl && (
+                <div style={{ marginTop: "1vh", marginBottom: "1vh" }}>
+                  <audio controls src={r.audioUrl} style={{ width: "100%" }}>
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              )}
+
               {r.description && <p style={{ fontStyle: "italic" }}>{r.description}</p>}
             </div>
             <button

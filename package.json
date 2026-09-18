@@ -2,7 +2,7 @@
   "name": "eternal-ghosts",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@12.4.1",
+  "packageManager": "pnpm@12.4.2",
   "engines": {
     "node": "22.x"
   },
@@ -15,6 +15,7 @@
     "migrate:down": "node-pg-migrate down"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1131.0",
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.8.0",
     "clsx": "^2.1.1",
