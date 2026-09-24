@@ -4,9 +4,16 @@
 import { useState, useEffect } from "react";
 import { Event } from "@/modules/events/domain/events.entity";
 
+interface NewEventForm {
+    title: string;
+    date: string;
+    location: string;
+    description: string;
+}
+
 export function useEvents() {
     const [events, setEvents] = useState<Event[]>([]);
-    const [newEvent, setNewEvent] = useState<Omit<Event, "id">>({
+    const [newEvent, setNewEvent] = useState<NewEventForm>({
         title: "",
         date: "",
         location: "",
