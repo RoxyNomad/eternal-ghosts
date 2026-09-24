@@ -4,7 +4,7 @@ export interface News {
     title: string;
     content: string;
     imageUrl: string | null;
-    publishedAt: string;
+    publishedAt: Date;
 }
 
 export interface CreateNews {

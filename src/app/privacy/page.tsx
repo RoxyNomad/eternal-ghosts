@@ -1,6 +1,4 @@
-// app/privacy/page.tsx
 import NoScrollHorizontal from "@/ui/components/layout/NoScrollHorizontal";
-
 import styles from "@/ui/styles/pages/terms.module.scss";
 
 export const metadata = {
@@ -121,7 +119,7 @@ export default function PrivacyPage() {
         <h2>10. Contact</h2>
         <p>
           For any privacy questions, contact us at:<br />
-          eternal-ghosts@gmx.ch
+          eternal.ghosts@gmx.ch
         </p>
 				</section>
       </main>

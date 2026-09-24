@@ -1,0 +1,94 @@
+// src/modules/media/ui/components/MediaView.module.scss
+
+.mediaContainer {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  width: 75svw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .mediaContent {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 1vh;
+    box-shadow: 0 0 10px #000;
+    padding: 3vh 2vw;
+
+    .containerTitle {
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      margin-bottom: 3vh;
+      text-transform: uppercase;
+    }
+  }
+
+  .noMedia {
+    text-align: center;
+    opacity: 0.6;
+    padding: 4vh 0;
+  }
+
+  /* Responsive Grid: 1 Spalte auf Mobile, automatische Mehrspaltigkeit ab Tablet */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3vh 2vw;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .mediaCard {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 1vh;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    padding: 2vh;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .playerWrapper {
+    width: 100%;
+    margin-bottom: 1.5vh;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vh;
+    flex-grow: 1;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin: 0;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-top: auto; // Richtet das Datum immer am unteren Rand aus
+  }
+}

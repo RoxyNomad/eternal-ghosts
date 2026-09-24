@@ -1,7 +1,6 @@
-// src/modules/auth/domain/admin-user.entity.ts
-
 export interface AdminUser {
-    id: number;
+    id: string;
     email: string;
     passwordHash: string;
+    createdAt: Date;
 }

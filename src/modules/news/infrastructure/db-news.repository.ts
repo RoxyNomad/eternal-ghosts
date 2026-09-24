@@ -1,37 +1,31 @@
-// src/infrastructure/repositories/db-news.repository.ts
-import { query } from "@/utils/db";
+
+import { desc } from "drizzle-orm";
+import { db } from "@/infrastructure/neon";
+import { newsTable } from "./db/news.schema";
 import { CreateNews, News } from "@/modules/news/domain/news.entity";
 import { NewsRepository } from "@/modules/news/domain/news.repository";
-import {
-    NewsMapper,
-    NewsRow,
-} from "./mappers/news.mapper";
+import { NewsMapper } from "./mappers/news.mapper";
 
 export class DbNewsRepository implements NewsRepository {
-    async getAllPublished(): Promise<News[]> {
-        const res = await query(`
-            SELECT id, title, content, image_url, published_at
-            FROM news
-            ORDER BY published_at DESC
-        `);
+  async getAllPublished(): Promise<News[]> {
+    const rows = await db
+      .select()
+      .from(newsTable)
+      .orderBy(desc(newsTable.publishedAt));
 
-        return NewsMapper.toDomainList(
-            res.rows as NewsRow[]
-        );
-    }
+    return NewsMapper.toDomainList(rows);
+  }
 
-    async create(data: CreateNews): Promise<News> {
-        const res = await query(
-            `
-                INSERT INTO news (title, content, image_url)
-                VALUES ($1, $2, $3)
-                    RETURNING id, title, content, image_url, published_at
-            `,
-            [data.title, data.content, data.imageUrl]
-        );
+  async create(data: CreateNews): Promise<News> {
+    const [inserted] = await db
+      .insert(newsTable)
+      .values({
+        title: data.title,
+        content: data.content,
+        imageUrl: data.imageUrl ?? null,
+      })
+      .returning();
 
-        return NewsMapper.toDomain(
-            res.rows[0] as NewsRow
-        );
-    }
+    return NewsMapper.toDomain(inserted);
+  }
 }

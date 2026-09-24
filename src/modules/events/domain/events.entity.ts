@@ -2,7 +2,7 @@
 export interface Event {
     id: number;
     title: string;
-    date: string; // ISO
+    date: Date;
     location?: string;
     description?: string;
 }

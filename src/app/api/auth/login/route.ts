@@ -3,16 +3,16 @@
 import { NextResponse } from "next/server";
 
 import { LoginHandler }
-from "@/modules/auth/application/handlers/login.handler";
+from "@/modules/admin/application/handlers/login.handler";
 
 import { LoginCommand }
-from "@/modules/auth/application/commands/login.command";
+from "@/modules/admin/application/commands/login.command";
 
 import { DbAdminUserRepository }
-from "@/modules/auth/infrastructure/db-admin-user.repository";
+from "@/modules/admin/infrastructure/db-admin-user.repository";
 
 import { JwtService }
-from "@/modules/auth/infrastructure/jwt.service";
+from "@/modules/admin/infrastructure/jwt.service";
 
 export async function POST(
     req: Request

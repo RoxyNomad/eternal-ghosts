@@ -1,35 +1,36 @@
-// src/modules/events/infrastructure/db-events.repository.ts
-
-import { query } from "@/utils/db";
-import { CreateEventInput, Event } from "../domain/events.entity";
-import { EventMapper, EventRow } from "./mappers/event.mapper";
-import { EventRepository } from "@/modules/events/domain/events.repository";
+import { eq, asc } from 'drizzle-orm';
+import { db } from '@/infrastructure/neon';
+import { eventsTable } from './db/events.schema';
+import { CreateEventInput, Event } from '../domain/events.entity';
+import { EventMapper } from './mappers/event.mapper';
+import { EventRepository } from '@/modules/events/domain/events.repository';
 
 export class DbEventRepository implements EventRepository {
-    async getAll(): Promise<Event[]> {
-        const res = await query(`
-            SELECT id, title, date, location
-            FROM events
-            ORDER BY date ASC
-        `);
+  async getAll(): Promise<Event[]> {
+    const rows = await db
+      .select()
+      .from(eventsTable)
+      .orderBy(asc(eventsTable.date));
 
-        return EventMapper.toDomainList(res.rows as EventRow[]);
-    }
+    return EventMapper.toDomainList(rows);
+  }
 
-    async create(input: CreateEventInput): Promise<Event> {
-        const res = await query(
-            `
-                INSERT INTO events (title, date, location)
-                VALUES ($1, $2, $3)
-                    RETURNING id, title, date, location
-            `,
-            [input.title, input.date, input.location ?? null]
-        );
+  async create(input: CreateEventInput): Promise<Event> {
+    const [inserted] = await db
+      .insert(eventsTable)
+      .values({
+        title: input.title,
+        date: typeof input.date === 'string' ? new Date(input.date) : input.date,
+        location: input.location ?? null,
+      })
+      .returning();
 
-        return EventMapper.toDomain(res.rows[0] as EventRow);
-    }
+    return EventMapper.toDomain(inserted);
+  }
 
-    async delete(id: number): Promise<void> {
-        await query(`DELETE FROM events WHERE id = $1`, [id]);
-    }
+  async delete(id: number): Promise<void> {
+    await db
+      .delete(eventsTable)
+      .where(eq(eventsTable.id, id));
+  }
 }

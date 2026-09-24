@@ -1,44 +1,45 @@
-import { Pool } from 'pg'; // Passt zu deiner NeonDB / Node Setup
+import { eq, desc } from 'drizzle-orm';
+import { db } from '../../../infrastructure/neon';
+import { releasesTable } from './db/releases.schema';
 import { Release } from '../domain/releases.entity';
 import { ReleasesRepository } from '../domain/releases.repository';
 import { ReleaseMapper } from './mappers/release.mapper';
 
 export class DbReleasesRepository implements ReleasesRepository {
-  constructor(private pool: Pool) {}
-
   async findAll(): Promise<Release[]> {
-    const { rows } = await this.pool.query('SELECT * FROM releases ORDER BY release_date DESC');
+    const rows = await db
+      .select()
+      .from(releasesTable)
+      .orderBy(desc(releasesTable.createdAt));
     return rows.map(ReleaseMapper.toDomain);
   }
 
   async findById(id: string): Promise<Release | null> {
-    const { rows } = await this.pool.query('SELECT * FROM releases WHERE id = $1', [id]);
+    const rows = await db
+      .select()
+      .from(releasesTable)
+      .where(eq(releasesTable.id, id));
     return rows.length ? ReleaseMapper.toDomain(rows[0]) : null;
   }
 
   async create(release: Omit<Release, 'id' | 'createdAt'>): Promise<Release> {
-    const query = `
-      INSERT INTO releases (
-        title, release_type, release_date, cover_image_url, cover_image_public_id, audio_url, audio_public_id, description
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-      RETURNING *;
-    `;
-    const values = [
-      release.title,
-      release.type,
-      release.releaseDate,
-      release.coverImageUrl,
-      release.coverImagePublicId,
-      release.audioUrl ?? null,
-      release.audioPublicId ?? null,
-      release.description ?? null,
-    ];
-
-    const { rows } = await this.pool.query(query, values);
-    return ReleaseMapper.toDomain(rows[0]);
+    const [inserted] = await db
+      .insert(releasesTable)
+      .values({
+        title: release.title,
+        releaseType: release.type,
+        releaseDate: release.releaseDate.toISOString().split('T')[0],
+        coverImageUrl: release.coverImageUrl,
+        coverImagePublicId: release.coverImagePublicId,
+        description: release.description || null,
+        audioUrl: release.audioUrl || null,
+        audioPublicId: release.audioPublicId || null,
+      })
+      .returning();
+    return ReleaseMapper.toDomain(inserted);
   }
 
   async delete(id: string): Promise<void> {
-    await this.pool.query('DELETE FROM releases WHERE id = $1', [id]);
+    await db.delete(releasesTable).where(eq(releasesTable.id, id));
   }
 }

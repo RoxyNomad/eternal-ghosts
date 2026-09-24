@@ -1,63 +1,59 @@
-// src/modules/gallery/infrastructure/db-picture.repository.ts
+import { eq, asc, desc } from "drizzle-orm";
+import { db } from "@/infrastructure/neon";
+import {
+  livePicturesTable,
+  locationsTable,
+} from "@/modules/events/infrastructure/db/events.schema";
 import { PictureRepository } from "../domain/picture.repository";
 import { CreatePictureInput, PictureEntity } from "../domain/picture.entity";
-import { PictureMapper, PictureRow } from "./mappers/picture.mapper";
-import { query } from "@/utils/db";
+import { PictureMapper } from "./mappers/picture.mapper";
 
 export class DbPictureRepository implements PictureRepository {
   async getAll(): Promise<PictureEntity[]> {
-    const res = await query(`
-      SELECT
-        p.id,
-        p.date,
-        p.image_url,
-        p.location_id,
-        l.name AS location_name
-      FROM live_pictures p
-             JOIN locations l ON l.id = p.location_id
-      ORDER BY p.id ASC
-    `);
+    const rows = await db
+      .select({
+        id: livePicturesTable.id,
+        date: livePicturesTable.date,
+        imageUrl: livePicturesTable.imageUrl,
+        locationId: livePicturesTable.locationId,
+        locationName: locationsTable.name,
+      })
+      .from(livePicturesTable)
+      .innerJoin(
+        locationsTable,
+        eq(locationsTable.id, livePicturesTable.locationId)
+      )
+      .orderBy(asc(livePicturesTable.id));
 
-    return PictureMapper.toDomainList(
-        res.rows as PictureRow[]
-    );
+    return PictureMapper.toDomainList(rows);
   }
 
   async getByLocationId(locationId: number): Promise<PictureEntity[]> {
-    const res = await query(
-        `
-          SELECT id, date, image_url, location_id
-          FROM live_pictures
-          WHERE location_id = $1
-          ORDER BY date DESC
-        `,
-        [locationId]
-    );
+    const rows = await db
+      .select()
+      .from(livePicturesTable)
+      .where(eq(livePicturesTable.locationId, locationId))
+      .orderBy(desc(livePicturesTable.date));
 
-    return PictureMapper.toDomainList(
-        res.rows as PictureRow[]
-    );
+    return PictureMapper.toDomainList(rows);
   }
 
   async create(input: CreatePictureInput): Promise<PictureEntity> {
-    const res = await query(
-        `
-          INSERT INTO live_pictures (date, location_id, image_url)
-          VALUES ($1, $2, $3)
-            RETURNING id, date, image_url, location_id
-        `,
-        [input.date, input.locationId, input.imageUrl]
-    );
+    const [inserted] = await db
+      .insert(livePicturesTable)
+      .values({
+        date: input.date,
+        locationId: input.locationId,
+        imageUrl: input.imageUrl,
+      })
+      .returning();
 
-    return PictureMapper.toDomain(
-        res.rows[0] as PictureRow
-    );
+    return PictureMapper.toDomain(inserted);
   }
 
   async delete(id: number): Promise<void> {
-    await query(
-        `DELETE FROM live_pictures WHERE id = $1`,
-        [id]
-    );
+    await db
+      .delete(livePicturesTable)
+      .where(eq(livePicturesTable.id, id));
   }
 }
