@@ -7,7 +7,7 @@ export type JwtPayload = {
 };
 
 export class JwtService {
-    sign(userId: number): string {
+    sign(userId: string): string {
         return jwt.sign(
             { userId },
             process.env.JWT_SECRET!,
