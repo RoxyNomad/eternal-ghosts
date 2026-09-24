@@ -3,9 +3,9 @@ export interface Biography {
     id: number;
     title: string;
     content: string;
-    publishedAt: string;
-    createdAt: string;
-    updatedAt: string;
+    publishedAt: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export interface CreateBiography {

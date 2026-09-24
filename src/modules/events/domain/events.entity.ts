@@ -2,9 +2,14 @@
 export interface Event {
     id: number;
     title: string;
-    date: string; // ISO
+    date: Date;
     location?: string;
     description?: string;
 }
 
-export type CreateEventInput = Omit<Event, "id">;
+export interface CreateEventInput {
+    title: string;
+    date: string | Date;
+    location?: string;
+    description?: string;
+}

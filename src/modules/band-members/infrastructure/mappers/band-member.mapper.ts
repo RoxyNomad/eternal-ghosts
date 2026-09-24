@@ -1,19 +1,11 @@
-// src/modules/band-members/infrastructure/mappers/band-member.mapper.ts
+import { BandMember } from '../../domain/band-member.entity';
+import { SelectBandMemberDb } from '../db/band-members.schema';
 
-import { BandMember } from "../../domain/band-member.entity";
-
-export interface BandMemberRow {
-    id: number;
-    name: string;
-    role: string;
-    image_url: string | null;
-}
-
-export function toBandMember(row: BandMemberRow): BandMember {
-    return {
-        id: row.id,
-        name: row.name,
-        role: row.role,
-        imageUrl: row.image_url,
-    };
+export function toBandMember(raw: SelectBandMemberDb): BandMember {
+  return {
+    id: raw.id,
+    name: raw.name,
+    role: raw.role,
+    imageUrl: raw.imageUrl ?? null,
+  };
 }

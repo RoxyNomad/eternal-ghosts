@@ -1,4 +1,3 @@
-// src/utils/db.ts
 import {
   Pool,
   type QueryResult,

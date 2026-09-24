@@ -7,9 +7,11 @@ import MemberForm from "@/modules/band-members/ui/components/MemberForm";
 import LivePictureForm from "@/modules/gallery/ui/components/admin/LivePictureForm";
 import NewsForm from "@/modules/news/ui/components/admin/NewsForm";
 import BiographyForm from "@/modules/biography/ui/components/admin/BiographyForm";
-import LogoutButton from "@/modules/auth/ui/components/LogoutButton";
+import AddVideoForm from "@/modules/media/ui/components/admin/AddVideoForm";
+import LogoutButton from "@/modules/admin/ui/components/LogoutButton";
 
 import styles from "@/ui/styles/pages/admin.module.scss";
+import ReleaseForm from "@/modules/releases/ui/components/admin/ReleaseForm";
 
 
 export default function AdminPage() {
@@ -18,6 +20,8 @@ export default function AdminPage() {
       <div className={styles.adminPage}>
           <HeaderNav active="admin" />
           <NewsForm />
+          <ReleaseForm />
+          <AddVideoForm onVideoAdded={() => {}} />
           <EventForm />
           <LivePictureForm />
           <BiographyForm />

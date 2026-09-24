@@ -2,6 +2,10 @@
   "name": "eternal-ghosts",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -11,10 +15,12 @@
     "migrate:down": "node-pg-migrate down"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1131.0",
+    "@neondatabase/serverless": "^1.1.0",
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.8.0",
     "clsx": "^2.1.1",
-    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.2",
     "framer-motion": "^12.4.1",
     "jose": "^6.2.3",
     "jsonwebtoken": "^9.0.3",
@@ -32,9 +38,11 @@
     "@types/node": "20.19.24",
     "@types/nodemailer": "^6.4.17",
     "@types/pg": "^8.15.6",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "^19",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9",
-    "eslint-config-next": "15.1.6"
+    "eslint-config-next": "16.2.9"
   }
 }

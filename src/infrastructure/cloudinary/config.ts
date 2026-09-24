@@ -1,4 +1,3 @@
-// src/infrastructure/cloudinary/config.ts
 import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config({
@@ -7,5 +6,13 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true,
 });
+
+export async function deleteCloudinaryImage(publicId: string): Promise<void> {
+  try {
+    await cloudinary.uploader.destroy(publicId);
+  } catch (error) {
+    console.error('Error deleting image from Cloudinary:', error);
+  }
+}
 
 export { cloudinary };

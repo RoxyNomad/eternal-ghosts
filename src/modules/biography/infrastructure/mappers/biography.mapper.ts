@@ -1,23 +1,13 @@
-// src/modules/biography/infrastructure/mappers/biography.mapper.ts
+import { Biography } from '../../domain/biography.entity';
+import { SelectBiographyDb } from '../db/biography.schema';
 
-import { Biography } from "../../domain/biography.entity";
-
-export interface BiographyRow {
-    id: number;
-    title: string;
-    content: string;
-    published_at: string;
-    created_at: string;
-    updated_at: string;
-}
-
-export function toBiography(row: BiographyRow): Biography {
-    return {
-        id: row.id,
-        title: row.title,
-        content: row.content,
-        publishedAt: row.published_at,
-        createdAt: row.created_at,
-        updatedAt: row.updated_at,
-    };
+export function toBiography(raw: SelectBiographyDb): Biography {
+  return {
+    id: raw.id,
+    title: raw.title,
+    content: raw.content,
+    publishedAt: raw.publishedAt,
+    createdAt: raw.createdAt,
+    updatedAt: raw.updatedAt,
+  };
 }

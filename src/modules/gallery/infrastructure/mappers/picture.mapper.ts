@@ -1,27 +1,22 @@
-// src/modules/gallery/infrastructure/mappers/picture.mapper.ts
-
 import { PictureEntity } from "../../domain/picture.entity";
+import { SelectLivePictureDb } from "@/modules/events/infrastructure/db/events.schema";
 
-export type PictureRow = {
-    id: number;
-    date: string;
-    image_url: string;
-    location_id: number;
-    location_name?: string | null;
-};
+export interface PictureWithLocationRow extends SelectLivePictureDb {
+  locationName?: string;
+}
 
 export class PictureMapper {
-    static toDomain(row: PictureRow): PictureEntity {
-        return {
-            id: row.id,
-            date: row.date,
-            imageUrl: row.image_url,
-            locationId: row.location_id,
-            locationName: row.location_name ?? undefined,
-        };
-    }
+  static toDomain(raw: PictureWithLocationRow): PictureEntity {
+    return {
+      id: raw.id,
+      date: raw.date ?? null,
+      imageUrl: raw.imageUrl ?? null,
+      locationId: raw.locationId ?? null,
+      locationName: raw.locationName ?? null,
+    };
+  }
 
-    static toDomainList(rows: PictureRow[]): PictureEntity[] {
-        return rows.map((row) => this.toDomain(row));
-    }
+  static toDomainList(rows: PictureWithLocationRow[]): PictureEntity[] {
+    return rows.map(PictureMapper.toDomain);
+  }
 }

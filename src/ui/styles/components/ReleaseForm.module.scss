@@ -1,0 +1,100 @@
+.releaseContainer {
+	width: 75vw;
+	margin: 0 auto;
+	color: whitesmoke;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 1vh;
+	box-shadow: 0 0 10px #000;
+	padding: 2vh 2vw;
+
+	.formTitle {
+		margin-bottom: 1vh;
+	}
+
+	input[name='title'],
+	input[name='releaseDate'],
+	select[name='type'],
+	input[type='file'] {
+		margin: 0.7vh 0;
+		padding: 0.5vh;
+		background-color: rgba(0, 0, 0, 0.4);
+		border-radius: 1vh;
+		box-shadow: 0 0 10px #000;
+		font-size: 1rem;
+		color: whitesmoke;
+		height: 3.5vh;
+		width: 20vw;
+		display: block;
+	}
+
+	select[name='type'] {
+		height: 4.5vh;
+		color-scheme: dark;
+		option {
+			background-color: #1a1a1a;
+			color: whitesmoke;
+		}
+	}
+
+	input[type="date"] {
+		color-scheme: dark;
+	}
+
+	textarea[name='description'] {
+		margin: 0.7vh 0;
+		padding: 0.5vh;
+		background-color: rgba(0, 0, 0, 0.4);
+		border-radius: 1vh;
+		box-shadow: 0 0 10px #000;
+		font-size: 1rem;
+		height: 10vh;
+		width: 75vw;
+		color: whitesmoke;
+		display: block;
+	}
+
+	.formButton {
+		margin: 1vh 0;
+		padding: 0.5vh;
+		background-color: rgba(0, 0, 0, 0.4);
+		border-radius: 1vh;
+		box-shadow: 0 0 10px #000;
+		color: whitesmoke;
+		font-size: 1rem;
+		border: none;
+
+		&:hover {
+			background-color: rgba(179, 179, 179, 0.4);
+			cursor: pointer;
+		}
+	}
+
+	.savedReleasesList {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 2vh 2vw;
+		margin-top: 2vh;
+	}
+
+	.savedRelease {
+		background-color: rgba(0, 0, 0, 0.2);
+		padding: 1.5vh;
+		border-radius: 1vh;
+		box-shadow: 0 0 5px #000;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		h4 {
+			margin: 0.5vh 0;
+		}
+		p {
+			font-size: 0.85rem;
+			margin: 0.3vh 0;
+			opacity: 0.8;
+		}
+	}
+}

@@ -1,60 +1,57 @@
-// src/modules/biography/infrastructure/db-biography.repository.ts
-import { query } from "@/utils/db";
+import { eq, desc } from 'drizzle-orm';
+import { db } from '@/infrastructure/neon';
+import { biographyTable } from './db/biography.schema';
 import {
-    Biography,
-    CreateBiography,
-    UpdateBiography
-} from "@/modules/biography/domain/biography.entity";
-import {BiographyRow, toBiography} from "@/modules/biography/infrastructure/mappers/biography.mapper";
-import { BiographyRepository } from "@/modules/biography/domain/biography.repository";
+  Biography,
+  CreateBiography,
+  UpdateBiography,
+} from '@/modules/biography/domain/biography.entity';
+import { toBiography } from '@/modules/biography/infrastructure/mappers/biography.mapper';
+import { BiographyRepository } from '@/modules/biography/domain/biography.repository';
 
 export class DbBiographyRepository implements BiographyRepository {
-    async getAllPublished(): Promise<Biography[]> {
-        const res = await query<BiographyRow>(`
-            SELECT id, title, content, published_at, created_at, updated_at
-            FROM biography
-        `);
+  async getAllPublished(): Promise<Biography[]> {
+    const rows = await db.select().from(biographyTable);
+    return rows.map(toBiography);
+  }
 
-        return res.rows.map(toBiography);
+  async getLatestPublished(): Promise<Biography | null> {
+    const rows = await db
+      .select()
+      .from(biographyTable)
+      .orderBy(desc(biographyTable.publishedAt))
+      .limit(1);
+
+    if (rows.length === 0) {
+      return null;
     }
 
-    async getLatestPublished(): Promise<Biography | null> {
-        const res = await query<BiographyRow>(`
-      SELECT id, title, content, published_at, created_at, updated_at
-      FROM biography
-      ORDER BY published_at DESC
-      LIMIT 1
-  `);
+    return toBiography(rows[0]);
+  }
 
-        if (res.rows.length === 0) {
-            return null;
-        }
+  async create(data: CreateBiography): Promise<Biography> {
+    const [inserted] = await db
+      .insert(biographyTable)
+      .values({
+        title: data.title,
+        content: data.content,
+      })
+      .returning();
 
-        return toBiography(res.rows[0]);
-    }
+    return toBiography(inserted);
+  }
 
-    async create(data: CreateBiography): Promise<Biography> {
-        const res = await query<BiographyRow>(`
-            INSERT INTO biography (title, content)
-            VALUES ($1, $2)
-                RETURNING id, title, content, published_at, created_at, updated_at
-        `, [data.title, data.content]);
+  async update(data: UpdateBiography): Promise<Biography> {
+    const [updated] = await db
+      .update(biographyTable)
+      .set({
+        title: data.title,
+        content: data.content,
+        updatedAt: new Date(),
+      })
+      .where(eq(biographyTable.id, data.id))
+      .returning();
 
-        return toBiography(res.rows[0]);
-    }
-
-    async update(data: UpdateBiography): Promise<Biography> {
-        const res = await query<BiographyRow>(`
-        UPDATE biography
-        SET title = $1,
-            content = $2,
-            updated_at = now()
-        WHERE id = $3
-        RETURNING id, title, content, published_at, created_at, updated_at
-        `,
-            [data.title, data.content, data.id]
-        );
-
-        return toBiography(res.rows[0]);
-    }
+    return toBiography(updated);
+  }
 }
