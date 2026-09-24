@@ -1,13 +1,20 @@
 import { eq, desc } from 'drizzle-orm';
-import { db } from '../../../infrastructure/neon';
+import { drizzle } from 'drizzle-orm/node-postgres';
+import { Pool } from 'pg';
 import { releasesTable } from './db/releases.schema';
 import { Release } from '../domain/releases.entity';
 import { ReleasesRepository } from '../domain/releases.repository';
 import { ReleaseMapper } from './mappers/release.mapper';
 
 export class DbReleasesRepository implements ReleasesRepository {
+  private db;
+
+  constructor(pool: Pool) {
+    this.db = drizzle(pool);
+  }
+
   async findAll(): Promise<Release[]> {
-    const rows = await db
+    const rows = await this.db
       .select()
       .from(releasesTable)
       .orderBy(desc(releasesTable.createdAt));
@@ -15,7 +22,7 @@ export class DbReleasesRepository implements ReleasesRepository {
   }
 
   async findById(id: string): Promise<Release | null> {
-    const rows = await db
+    const rows = await this.db
       .select()
       .from(releasesTable)
       .where(eq(releasesTable.id, id));
@@ -23,7 +30,7 @@ export class DbReleasesRepository implements ReleasesRepository {
   }
 
   async create(release: Omit<Release, 'id' | 'createdAt'>): Promise<Release> {
-    const [inserted] = await db
+    const [inserted] = await this.db
       .insert(releasesTable)
       .values({
         title: release.title,
@@ -40,6 +47,6 @@ export class DbReleasesRepository implements ReleasesRepository {
   }
 
   async delete(id: string): Promise<void> {
-    await db.delete(releasesTable).where(eq(releasesTable.id, id));
+    await this.db.delete(releasesTable).where(eq(releasesTable.id, id));
   }
 }

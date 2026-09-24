@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { DbReleasesRepository } from '@/modules/releases/infrastructure/db-releases.repository';
 import { CreateReleaseHandler } from '@/modules/releases/application/handlers/create-release.handler';
 import { GetReleasesHandler } from '@/modules/releases/application/handlers/get-releases.handler';
-import { pool } from '@/utils/db'; // Gefixt: 'pool' statt 'dbPool'
+import { pool } from '@/utils/db';
 
 const repository = new DbReleasesRepository(pool);
 

@@ -1,9 +1,5 @@
-// src/app/api/admin/news/route.ts
-
 import { NextResponse } from "next/server";
-
 import { DbNewsRepository } from "@/modules/news/infrastructure/db-news.repository";
-
 import { CreateNewsCommand } from "@/modules/news/application/commands/create-news.command";
 import { CreateNewsHandler } from "@/modules/news/application/handlers/create-news.handler";
 

@@ -5,7 +5,7 @@ export interface Release {
   releaseDate: Date;
   coverImageUrl: string;
   coverImagePublicId: string;
-  audioUrl?: string;          // Direkt-Link zur Werbefreien Audio-Datei
+  audioUrl?: string;
   audioPublicId?: string;
   description?: string;
   createdAt: Date;

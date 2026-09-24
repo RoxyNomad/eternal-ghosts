@@ -9,7 +9,6 @@ export class ReleasePresentationMapper {
       type: release.type,
       description: release.description ?? null,
       audioUrl: release.audioUrl,
-      // Transformationen zentral gekapselt:
       coverUrl: release.coverImageUrl,
       formattedDate: new Date(release.releaseDate).toLocaleDateString("de-CH", {
         day: "2-digit",
