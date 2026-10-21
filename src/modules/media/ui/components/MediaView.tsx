@@ -10,11 +10,11 @@ export default function MediaView() {
   return (     
 		<div className={styles.mediaContainer}>
 			<div className={styles.mediaContent}>
-				{loading && <p className={styles.noMedia}>Videos werden geladen...</p>}
-				{error && <p className={styles.noMedia}>Fehler: {error}</p>}
+				{loading && <p className={styles.noMedia}>Videos are loading...</p>}
+				{error && <p className={styles.noMedia}>Error: {error}</p>}
 
 				{!loading && mediaItems.length === 0 && (
-					<p className={styles.noMedia}>Keine Videos verfügbar.</p>
+					<p className={styles.noMedia}>No videos available.</p>
 				)}
 
 				{!loading && mediaItems.length > 0 && (
