@@ -2,7 +2,7 @@
   "name": "eternal-ghosts",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@12.4.2",
+  "packageManager": "pnpm@12.6.0",
   "engines": {
     "node": "22.x"
   },
@@ -10,9 +10,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "migrate": "node-pg-migrate up",
-    "migrate:down": "node-pg-migrate down"
+    "lint": "next lint"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1131.0",
@@ -25,7 +23,6 @@
     "jose": "^6.2.3",
     "jsonwebtoken": "^9.0.3",
     "next": "16.2.9",
-    "node-pg-migrate": "^8.0.3",
     "nodemailer": "^6.10.0",
     "pg": "^8.16.3",
     "react": "^19.2.7",
