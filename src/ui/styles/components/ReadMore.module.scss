@@ -1,19 +1,43 @@
 .newsList {
-  width: 90%;
-  margin: 0 auto;
+  width: 75vw; // Analog zur PageBar anpassen
+  margin: 5vh auto 0 auto;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
 
   .newsItem {
     display: flex;
-    padding: 2vh 2vw;
+    flex-direction: row; // Desktop: Nebeneinander
+    padding: 2.5vh 2vw;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 1vh;
     box-shadow: 0 0 10px #000;
     gap: 2vw;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column; // Handy: Untereinander stapeln
+      align-items: stretch;
+      gap: 2vh;
+      padding: 2vh;
+    }
 
     .newsImage {
       width: 20vw;
+      height: auto;
+      object-fit: cover;
+      border-radius: 0.5vh;
+
+      @media (max-width: 768px) {
+        width: 100%; // Nimmt auf dem Handy die volle Box-Breite ein
+        max-height: 250px;
+      }
     }
   }
 }

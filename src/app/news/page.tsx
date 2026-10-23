@@ -22,13 +22,18 @@ export default function News() {
               <AnimatedPictureAndLogo />
             </div>
             <div className={styles.navPageBar}>
+              {/* 1. Titel ganz links */}
+              <Link href="/news" className={styles.navPageTitle}>
+                NEWS
+              </Link>
+
+              {/* 2. Social Icons exakt in der Mitte verteilt */}
               <SocialIcons variant='news' />
-              <div className='newsContainer'>
-                <div className={styles.navPageTitle}>NEWS</div>
-                <Link
-                    href='#read-more' className={styles.readMore}>READ MORE
-                </Link>
-              </div>
+
+              {/* 3. Read More Button ganz rechts */}
+              <Link href='#read-more' className={styles.readMore}>
+                READ MORE
+              </Link>
             </div>
 
           </section>

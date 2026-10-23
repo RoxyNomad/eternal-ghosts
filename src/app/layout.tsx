@@ -39,26 +39,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={myFont.variable}
-        style={{ minHeight: "100vh" }}
-      >
-        {/* Background Image */}
-        <Image
-          src="/pictures/bg.jpeg"
-          alt="Eternal Ghosts Background"
-          priority
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            zIndex: -1,
-          }}
-          width='1920'
-          height='1080'
-        />
+      <body className={myFont.variable} style={{ minHeight: "100vh", margin: 0 }}>
+        {/* Reines CSS Background vermeidet Next.js Image-Konflikte */}
+        <div className="globalBackground" />
 
         {/* Page Content */}
         {children}

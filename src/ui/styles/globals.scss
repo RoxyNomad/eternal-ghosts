@@ -50,3 +50,35 @@
   }
 }
 
+.globalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: url('/pictures/bg.jpeg');
+  background-size: cover; /* oder 'contain', je nachdem was besser aussieht */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #0d0d0d;
+}
+
+/* Global Mobile Resets */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Anpassung der globalen Padding-Strukturen für Mobile */
+@media (max-width: 768px) {
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+

@@ -1,49 +1,62 @@
 .navPageBar {
   position: relative;
-  display: flex;
+  display: grid; // Wechsel von Flex zu Grid für absolute Kontrolle
+  grid-template-columns: 1fr auto 1fr; // Linke Spalte, Mitte (Icons), Rechte Spalte
+  align-items: center;
   width: 75vw;
   margin: 0 auto;
-  padding: 0 0.5vw;
+  padding: 0 1.5vw;
   height: 5vh;
-  align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 1vh;
   box-shadow: 0 0 10px #000;
   top: 35vh;
 
+  @media (max-width: 768px) {
+    width: 90vw;
+    top: 18vh;
+    height: auto;
+    padding: 1.5vh 2vw;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+  }
+
   .navPageTitle {
-    position: absolute;
+    justify-self: start; // Hält den Titel links
     font-family: Verdana, sans-serif;
     font-size: 3vh;
     color: white;
-    margin: 0 auto;
     text-decoration: none;
     letter-spacing: 1vw;
-    top: 50%;
-    transform: translateY(-50%);
+
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+      letter-spacing: 0.3vw;
+    }
   }
 
   .readMore {
-    position: absolute;
+    justify-self: end; // Hält den Button rechts
     font-size: 3vh;
     font-family: Verdana, sans-serif;
     color: white;
     text-decoration: none;
     letter-spacing: 1vw;
-    left: 75%;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 1vh;
     border: 0.1vh solid #ff0000;
     box-shadow: 8px 5px 5px black;
-    padding-right: 0;
-    padding-left: 1vh;
-    top: 50%;
-    transform: translateY(-50%);
+    padding: 0 1vh;
 
     &:hover {
       background-color: rgba(187, 187, 187, 0.2);
       cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+      letter-spacing: 0.1vw;
+      padding: 0.4vh 1vh;
+    }
   }
 }
-

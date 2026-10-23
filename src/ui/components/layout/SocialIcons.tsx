@@ -21,7 +21,6 @@ interface SocialIconsProps {
 }
 
 export default function SocialIcons({ variant = "default" }: SocialIconsProps) {
-  // Styles auswählen basierend auf Variant
   const styles =
     variant === "band"
       ? bandStyles
@@ -29,13 +28,26 @@ export default function SocialIcons({ variant = "default" }: SocialIconsProps) {
       ? newsStyles
       : defaultStyles;
 
-  // Icons konfigurieren
   const icons: IconItem[] = [
     { src: "/pictures/facebook-icon.png", href: "https://www.facebook.com/profile.php?id=61573032031881", alt: "Facebook", className: styles.facebookIcon },
     { src: "/pictures/youtube-icon.png", href: "https://www.youtube.com/watch?v=B_YRm7NKeas", alt: "YouTube", className: styles.youtubeIcon },
     { src: "/pictures/instagram-icon.png", href: "https://www.instagram.com/eternalghosts0/", alt: "Instagram", className: styles.instagramIcon },
   ];
 
+  // Wenn es die News-Variante ist, geben wir einen Flex-Container mit der passenden Klasse zurück
+  if (variant === "news") {
+    return (
+      <div className={newsStyles.socialIconsWrapper}>
+        {icons.map((icon, i) => (
+          <Link key={i} href={icon.href} target="_blank" rel="noopener noreferrer">
+            <Image src={icon.src} width={94} height={94} alt={icon.alt} className={icon.className} />
+          </Link>
+        ))}
+      </div>
+    );
+  }
+
+  // Standard-Verhalten für andere Varianten
   return (
     <div>
       {icons.map((icon, i) => (

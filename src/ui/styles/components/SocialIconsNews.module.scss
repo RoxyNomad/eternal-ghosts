@@ -1,41 +1,31 @@
-.facebookIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 3.5vh;
-  left: 30%;
-  transform: translateX(-70%);
-  top: 7%;
+.socialIconsWrapper {
+  justify-self: center; // Platziert den gesamten Icon-Block in der exakten Mitte der Bar
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12vw; // Gleichmäßiger Abstand zwischen den Icons von YouTube aus
 
-  &:hover {
-    cursor: pointer;
+  @media (max-width: 768px) {
+    gap: 4vw;
   }
 }
 
+.facebookIcon,
+.youtubeIcon,
 .instagramIcon {
-  position: absolute;
+  position: static;
+  transform: translateY(3);
   width: 4vh;
   height: 4vh;
-  border-radius: 2.65vh;
-  right: 30%;
-  transform: translateX(70%);
-  top: 7%;
+  object-fit: contain;
 
   &:hover {
     cursor: pointer;
+    opacity: 0.8;
   }
-}
 
-.youtubeIcon {
-  position: absolute;
-  width: 4vh;
-  height: 4vh;
-  border-radius: 2.65vh;
-  left: 50%;
-  transform: translate(-50%);
-  top: 7%;
-
-  &:hover {
-    cursor: pointer;
+  @media (max-width: 768px) {
+    width: 2.5vh;
+    height: 2.5vh;
   }
 }
